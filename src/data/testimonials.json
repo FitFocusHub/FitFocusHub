@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Rahul Sharma",
+    "role": "Owner, Iron Forge Gym",
+    "avatar": "",
+    "rating": 5,
+    "text": "FitFocusHub transformed our online presence completely. The website they built is stunning, fast, and our membership inquiries have doubled. Highly recommend their services!",
+    "project": "Iron Forge Gym"
+  },
+  {
+    "id": 2,
+    "name": "Priya Patel",
+    "role": "Owner, Spice Garden Restaurant",
+    "avatar": "",
+    "rating": 5,
+    "text": "The restaurant website exceeded our expectations. The online menu and reservation system work flawlessly. Our customers love the new look and feel.",
+    "project": "Spice Garden Restaurant"
+  },
+  {
+    "id": 3,
+    "name": "Amit Kumar",
+    "role": "Director, EduBright Academy",
+    "avatar": "",
+    "rating": 5,
+    "text": "Professional, creative, and delivered on time. The education platform they built has streamlined our admission process significantly. Great team to work with!",
+    "project": "EduBright Academy"
+  },
+  {
+    "id": 4,
+    "name": "Sneha Reddy",
+    "role": "Founder, Glam Studio",
+    "avatar": "",
+    "rating": 5,
+    "text": "Our salon booking system has made managing appointments so much easier. The design perfectly captures our brand aesthetic. Thank you FitFocusHub!",
+    "project": "Glam Studio Salon"
+  },
+  {
+    "id": 5,
+    "name": "Vikram Singh",
+    "role": "CEO, ShopVerse",
+    "avatar": "",
+    "rating": 5,
+    "text": "The ecommerce platform they built handles thousands of orders smoothly. The admin dashboard gives us complete control over our business. Outstanding work!",
+    "project": "ShopVerse Ecommerce"
+  },
+  {
+    "id": 6,
+    "name": "Ananya Joshi",
+    "role": "Owner, Brew & Bean Cafe",
+    "avatar": "",
+    "rating": 5,
+    "text": "The cafe website perfectly captures our cozy vibe. Online orders have increased by 40% since launch. The team was responsive and professional throughout.",
+    "project": "Brew & Bean Cafe"
+  }
+]

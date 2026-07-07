@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Tech Startup Logo",
+    "category": "Technology",
+    "image": "/media/logos/tech-startup.png"
+  },
+  {
+    "id": 2,
+    "title": "Restaurant Logo",
+    "category": "Food & Beverage",
+    "image": "/media/logos/restaurant-logo.png"
+  },
+  {
+    "id": 3,
+    "title": "Fitness Brand Logo",
+    "category": "Fitness",
+    "image": "/media/logos/fitness-brand.png"
+  },
+  {
+    "id": 4,
+    "title": "Ecommerce Logo",
+    "category": "Ecommerce",
+    "image": "/media/logos/ecommerce-logo.png"
+  }
+]

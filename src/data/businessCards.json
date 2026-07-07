@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Corporate Business Card",
+    "category": "Corporate",
+    "image": "/media/business-cards/corporate-card.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Creative Agency Card",
+    "category": "Creative",
+    "image": "/media/business-cards/creative-card.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Minimalist Design",
+    "category": "Minimal",
+    "image": "/media/business-cards/minimal-card.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Restaurant Card",
+    "category": "Food",
+    "image": "/media/business-cards/restaurant-card.jpg"
+  }
+]

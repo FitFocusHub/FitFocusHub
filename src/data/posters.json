@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Sale Poster",
+    "category": "Promotional",
+    "image": "/media/posters/sale-poster.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Event Poster",
+    "category": "Event",
+    "image": "/media/posters/event-poster.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Festival Offer",
+    "category": "Seasonal",
+    "image": "/media/posters/festival-offer.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Gym Membership Poster",
+    "category": "Fitness",
+    "image": "/media/posters/gym-poster.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Restaurant Menu Poster",
+    "category": "Food",
+    "image": "/media/posters/restaurant-poster.jpg"
+  }
+]

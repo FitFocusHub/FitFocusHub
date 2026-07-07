@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Brand Promo Video",
+    "description": "High-energy brand promotional video with cinematic transitions and motion graphics.",
+    "category": "Promotional",
+    "duration": "2:30",
+    "thumbnail": "/media/thumbnails/brand-promo-thumb.jpg",
+    "videoUrl": "/media/videos/brand-promo.mp4"
+  },
+  {
+    "id": 2,
+    "title": "Product Showcase Reel",
+    "description": "Dynamic product showcase with 3D animations and smooth camera movements.",
+    "category": "Product",
+    "duration": "1:45",
+    "thumbnail": "/media/thumbnails/product-showcase-thumb.jpg",
+    "videoUrl": "/media/videos/product-showcase.mp4"
+  },
+  {
+    "id": 3,
+    "title": "Social Media Ad - Fitness",
+    "description": "Instagram Reels style fitness ad with trending transitions and effects.",
+    "category": "Social Media",
+    "duration": "0:30",
+    "thumbnail": "/media/thumbnails/fitness-ad-thumb.jpg",
+    "videoUrl": "/media/videos/fitness-ad.mp4"
+  },
+  {
+    "id": 4,
+    "title": "Corporate Explainer",
+    "description": "Professional corporate explainer video with clean animations and voiceover.",
+    "category": "Corporate",
+    "duration": "3:15",
+    "thumbnail": "/media/thumbnails/corporate-explainer-thumb.jpg",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": 5,
+    "title": "YouTube Intro Animation",
+    "description": "Custom YouTube channel intro with logo reveal and sound effects.",
+    "category": "YouTube",
+    "duration": "0:10",
+    "thumbnail": "/media/thumbnails/youtube-intro-thumb.jpg",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  {
+    "id": 6,
+    "title": "Event Highlight Reel",
+    "description": "Event coverage highlight video with energetic cuts and music sync.",
+    "category": "Event",
+    "duration": "4:00",
+    "thumbnail": "/media/thumbnails/event-highlight-thumb.jpg",
+    "videoUrl": "/media/videos/event-highlight.mp4"
+  }
+]

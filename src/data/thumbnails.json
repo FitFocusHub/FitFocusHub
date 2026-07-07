@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Gaming Thumbnail 1",
+    "category": "Gaming",
+    "image": "/media/thumbnails/gaming-1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "AI Tech Thumbnail",
+    "category": "AI",
+    "image": "/media/thumbnails/ai-tech.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Business Growth",
+    "category": "Business",
+    "image": "/media/thumbnails/business-growth.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Finance Tips",
+    "category": "Finance",
+    "image": "/media/thumbnails/finance-tips.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Tech Review",
+    "category": "Technology",
+    "image": "/media/thumbnails/tech-review.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Tutorial Thumbnail",
+    "category": "Educational",
+    "image": "/media/thumbnails/tutorial.jpg"
+  },
+  {
+    "id": 7,
+    "title": "YouTube Video Thumb",
+    "category": "YouTube",
+    "image": "/media/thumbnails/youtube-video.jpg"
+  }
+]

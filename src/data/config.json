@@ -1,0 +1,28 @@
+{
+  "agencyName": "FitFocusHub",
+  "tagline": "Premium Digital Agency",
+  "description": "We craft premium digital experiences that elevate your brand and drive real business results.",
+  "email": "fitfocushub@gmail.com.com",
+  "phone": "+91 99302 71670",
+  "whatsapp": "919930271670",
+  "whatsapp2": "919930271670",
+  "address": "Mumbai, Maharashtra, India",
+  "logo": "/logo.svg",
+  "social": {
+    "facebook": "https://facebook.com/fitfocushub",
+    "instagram": "https://instagram.com/fitfocushub",
+    "twitter": "https://twitter.com/fitfocushub",
+    "linkedin": "https://linkedin.com/company/fitfocushub",
+    "youtube": "https://youtube.com/@fitfocushub",
+    "dribbble": "https://dribbble.com/fitfocushub",
+    "behance": "https://behance.net/fitfocushub"
+  },
+  "stats": {
+    "projectsCompleted": 150,
+    "happyClients": 120,
+    "teamMembers": 2,
+    "yearsExperience": 2
+  },
+  "businessHours": "Mon - Sat: 9:00 AM - 7:00 PM",
+  "copyrightYear": 2026
+}

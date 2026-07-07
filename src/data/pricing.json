@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Starter",
+    "tagline": "Perfect for small businesses",
+    "price": "₹2,499",
+    "priceNote": "one-time",
+    "popular": false,
+    "features": [
+      "1-5 Page Website",
+      "Responsive Design",
+      "Basic SEO Setup",
+      "Contact Form",
+      "Social Media Links",
+      "WhatsApp Integration",
+      "1 Month Support",
+      "SSL Certificate"
+    ],
+    "excluded": [
+      "Custom Animations",
+      "E-commerce Features",
+      "Admin Dashboard",
+      "Priority Support"
+    ],
+    "cta": "Get Started"
+  },
+  {
+    "id": 2,
+    "name": "Business",
+    "tagline": "Best for growing businesses",
+    "price": "₹4,999",
+    "priceNote": "one-time",
+    "popular": true,
+    "features": [
+      "5-15 Page Website",
+      "Custom Design",
+      "Advanced SEO",
+      "Contact Forms",
+      "Social Media Integration",
+      "WhatsApp Chat",
+      "Google Maps",
+      "Analytics Setup",
+      "3 Months Support",
+      "SSL Certificate",
+      "Speed Optimization"
+    ],
+    "excluded": [
+      "E-commerce Features",
+      "Custom Animations"
+    ],
+    "cta": "Get Started"
+  },
+  {
+    "id": 3,
+    "name": "Premium",
+    "tagline": "For established businesses",
+    "price": "₹9,999",
+    "priceNote": "one-time",
+    "popular": false,
+    "features": [
+      "15-30 Page Website",
+      "Premium Custom Design",
+      "Advanced SEO Strategy",
+      "Multiple Contact Forms",
+      "Social Media Integration",
+      "WhatsApp Chat",
+      "Google Maps",
+      "Analytics Dashboard",
+      "Custom Animations",
+      "Speed Optimization",
+      "6 Months Support",
+      "SSL Certificate",
+      "CMS Integration",
+      "Blog Setup"
+    ],
+    "excluded": [
+      "E-commerce Features"
+    ],
+    "cta": "Get Started"
+  },
+  {
+    "id": 4,
+    "name": "Enterprise",
+    "tagline": "Complete digital solution",
+    "price": "₹15,999",
+    "priceNote": "one-time",
+    "popular": false,
+    "features": [
+      "Unlimited Pages",
+      "Enterprise Custom Design",
+      "Full SEO Strategy",
+      "Multiple Contact Forms",
+      "Full Social Media Integration",
+      "WhatsApp Business API",
+      "Google Maps Pro",
+      "Analytics Dashboard",
+      "Advanced Animations",
+      "Speed Optimization",
+      "12 Months Support",
+      "SSL Certificate",
+      "E-commerce Features",
+      "Custom Dashboard",
+      "AI Integration",
+      "Priority Support",
+      "Monthly Maintenance"
+    ],
+    "excluded": [],
+    "cta": "Contact Us"
+  }
+]

@@ -1,0 +1,64 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Testing
+coverage
+
+# Production
+build
+dist
+dist-ssr
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Misc
+*.local
+
+# Media Files (Large files - upload to cloud instead)
+# Folder structure rakho, files mat rakho GitHub pe
+public/media/videos/*.mp4
+public/media/videos/*.webm
+public/media/videos/*.avi
+public/media/videos/*.mov
+public/media/thumbnails/*.jpg
+public/media/thumbnails/*.png
+public/media/thumbnails/*.webp
+public/media/posters/*.jpg
+public/media/posters/*.png
+public/media/logos/*.png
+public/media/logos/*.svg
+public/media/business-cards/*.jpg
+public/media/business-cards/*.png
+public/media/projects/*.jpg
+public/media/projects/*.png
+
+# Keep .gitkeep files
+!public/media/**/.gitkeep
+!public/media/**/README.md
