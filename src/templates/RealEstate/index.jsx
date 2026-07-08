@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiPhone, FiMail, FiMapPin, FiClock, FiArrowRight, FiHome, FiDollarSign, FiShield, FiUsers, FiStar, FiBed, FiMaximize } from 'react-icons/fi';
+import { FiPhone, FiMail, FiMapPin, FiClock, FiArrowRight, FiHome, FiDollarSign, FiShield, FiUsers, FiStar, FiMaximize } from 'react-icons/fi';
 import DemoModal from '../shared/DemoModal';
 import TemplateFooter from '../shared/TemplateFooter';
 import Settings from '../shared/Settings';
@@ -188,7 +188,7 @@ export default function RealEstateTemplate() {
                 </div>
                 <div className="re-property-features">
                   <span className="re-property-feature">
-                    <FiBed /> {property.beds} {property.beds === 1 ? 'Bed' : 'Beds'}
+                    <FiHome /> {property.beds} {property.beds === 1 ? 'Bed' : 'Beds'}
                   </span>
                   <span className="re-property-feature">
                     <FiMaximize /> {property.sqft} sqft

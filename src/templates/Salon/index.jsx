@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaInstagram, FaEnvelope, FaScissors, FaSpa, FaHandSparkles, FaPaintBrush, FaUserTie, FaHeart, FaCut, FaStar, FaTimes, FaMapMarkerAlt, FaPhone, FaArrowRight } from 'react-icons/fa';
+import { FaInstagram, FaEnvelope, FaCut, FaSpa, FaHandSparkles, FaPaintBrush, FaUserTie, FaHeart, FaStar, FaTimes, FaMapMarkerAlt, FaPhone, FaArrowRight } from 'react-icons/fa';
 import DemoModal from '../shared/DemoModal';
 import Settings from '../shared/Settings';
 import TemplateFooter from '../shared/TemplateFooter';
@@ -45,7 +45,7 @@ const Salon = () => {
       <nav className="salon-nav">
         <div className="salon-nav-inner">
           <div className="salon-logo">
-            <FaScissors className="salon-logo-icon" />
+            <FaCut className="salon-logo-icon" />
             <span>Your Salon</span>
           </div>
           <div className="salon-nav-links">
