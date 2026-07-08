@@ -1,320 +1,445 @@
 import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import {
-  FiMenu, FiX, FiMapPin, FiPhone, FiMail, FiClock,
-  FiArrowRight, FiStar, FiCheck, FiSend, FiGlobe, FiShield,
-  FiUsers, FiCalendar, FiTrendingUp
-} from 'react-icons/fi';
 import DemoModal from '../shared/DemoModal';
 import Settings from '../shared/Settings';
 import TemplateFooter from '../shared/TemplateFooter';
 import './TravelTemplate.css';
 
-const destinations = [
-  { id: 1, name: 'Maldives Paradise', emoji: '🏝️', price: 34999, per: 'per person', desc: 'Crystal clear waters, white sandy beaches, and luxurious overwater villas.', rating: 4.9, duration: '5D / 4N' },
-  { id: 2, name: 'Swiss Alps Trek', emoji: '⛰️', price: 59999, per: 'per person', desc: 'Breathtaking mountain views, alpine meadows, and thrilling adventure sports.', rating: 4.8, duration: '7D / 6N' },
-  { id: 3, name: 'Tokyo Explorer', emoji: '🗼', price: 44999, per: 'per person', desc: 'Ancient temples, futuristic skyline, and unforgettable street food tours.', rating: 4.7, duration: '6D / 5N' },
-  { id: 4, name: 'Patagonia Adventure', emoji: '🏔️', price: 74999, per: 'per person', desc: 'Untamed wilderness, massive glaciers, and epic trekking routes.', rating: 4.9, duration: '10D / 9N' },
-];
-
-const features = [
-  { icon: <FiShield size={24} />, title: 'Verified & Safe', desc: 'Every trip is fully insured with 24/7 emergency support for total peace of mind.' },
-  { icon: <FiGlobe size={24} />, title: '500+ Destinations', desc: 'From tropical beaches to alpine peaks — we cover every corner of the globe.' },
-  { icon: <FiUsers size={24} />, title: 'Expert Local Guides', desc: 'Knowledgeable guides who bring every destination to life with insider stories.' },
-  { icon: <FiTrendingUp size={24} />, title: 'Best Price Guarantee', desc: 'We match any competitor price and include exclusive perks at no extra cost.' },
-];
-
-const testimonials = [
-  { name: 'Priya Sharma', avatar: 'PS', text: 'Our Maldives trip was absolutely magical! Everything was perfectly arranged from start to finish. The resort was stunning and the staff were incredibly helpful.', rating: 5, trip: 'Maldives Paradise' },
-  { name: 'Rahul Verma', avatar: 'RV', text: 'The Swiss Alps trek was a life-changing experience. The views were breathtaking and our guide was extremely knowledgeable. Highly recommend!', rating: 5, trip: 'Swiss Alps Trek' },
-  { name: 'Ananya Patel', avatar: 'AP', text: 'Tokyo was a perfect blend of tradition and modernity. The food tour was the highlight of our trip. Can\'t wait to go back!', rating: 5, trip: 'Tokyo Explorer' },
-];
-
-function formatPrice(p) {
-  return `₹${p.toLocaleString('en-IN')}`;
-}
-
 export default function TravelTemplate() {
-  const [showModal, setShowModal] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [modalType, setModalType] = useState('booking');
-  const [modalItem, setModalItem] = useState('');
-  const [showSettings, setShowSettings] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   const heroRef = useRef(null);
-  const statsRef = useRef(null);
   const destinationsRef = useRef(null);
   const whyUsRef = useRef(null);
-  const testimonialsRef = useRef(null);
+  const packagesRef = useRef(null);
+  const storiesRef = useRef(null);
+  const newsletterRef = useRef(null);
   const contactRef = useRef(null);
 
   const scrollTo = (ref) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const openDemo = (type, name) => {
-    setModalType(type);
-    setModalItem(name);
-    setShowModal(true);
+  const openBookingModal = () => {
+    setModalType('booking');
+    setModalOpen(true);
   };
 
-  if (showSettings) {
-    return <Settings onBack={() => setShowSettings(false)} />;
-  }
+  const destinations = [
+    {
+      id: 1,
+      name: 'Goa',
+      tagline: 'Sun, Sand & Serenity',
+      price: '₹12,999',
+      image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&h=600&fit=crop'
+    },
+    {
+      id: 2,
+      name: 'Manali',
+      tagline: 'Mountain Magic Awaits',
+      price: '₹15,999',
+      image: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&h=600&fit=crop'
+    },
+    {
+      id: 3,
+      name: 'Kerala',
+      tagline: 'God\'s Own Country',
+      price: '₹18,999',
+      image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&h=600&fit=crop'
+    },
+    {
+      id: 4,
+      name: 'Ladakh',
+      tagline: 'Where Earth Touches Sky',
+      price: '₹22,999',
+      image: 'https://images.unsplash.com/photo-1626016308238-a5e0e0e5e0c6?w=800&h=600&fit=crop'
+    },
+    {
+      id: 5,
+      name: 'Jaipur',
+      tagline: 'Royal Heritage Experience',
+      price: '₹11,999',
+      image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=800&h=600&fit=crop'
+    },
+    {
+      id: 6,
+      name: 'Varanasi',
+      tagline: 'Eternal Spiritual Journey',
+      price: '₹9,999',
+      image: 'https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=800&h=600&fit=crop'
+    }
+  ];
+
+  const features = [
+    {
+      icon: '🗺️',
+      title: 'Expert Local Guides',
+      description: 'Passionate explorers who know every hidden gem and secret trail'
+    },
+    {
+      icon: '🛡️',
+      title: '100% Safe Travel',
+      description: 'Complete safety protocols and 24/7 emergency support'
+    },
+    {
+      icon: '🎯',
+      title: 'Customized Itineraries',
+      description: 'Tailor-made adventures designed just for you'
+    },
+    {
+      icon: '💰',
+      title: 'Best Price Guarantee',
+      description: 'Unbeatable prices without compromising quality'
+    },
+    {
+      icon: '🎒',
+      title: 'All-Inclusive Packages',
+      description: 'Everything sorted - flights, stays, activities & meals'
+    },
+    {
+      icon: '⭐',
+      title: '5-Star Experiences',
+      description: 'Rated best adventure company by thousands of travelers'
+    }
+  ];
+
+  const packages = [
+    {
+      id: 'budget',
+      name: 'Budget Explorer',
+      price: '₹9,999',
+      period: 'per person',
+      features: [
+        '3 Days / 2 Nights',
+        'Budget Hotels',
+        'Breakfast Only',
+        'Group Activities',
+        'Shared Transport',
+        'Basic Itinerary'
+      ],
+      popular: false
+    },
+    {
+      id: 'standard',
+      name: 'Adventure Seeker',
+      price: '₹19,999',
+      period: 'per person',
+      features: [
+        '5 Days / 4 Nights',
+        '3-Star Hotels',
+        'All Meals Included',
+        'Small Group Activities',
+        'Private Transport',
+        'Custom Itinerary',
+        'Airport Transfers',
+        'Travel Insurance'
+      ],
+      popular: true
+    },
+    {
+      id: 'premium',
+      name: 'Luxury Wanderer',
+      price: '₹39,999',
+      period: 'per person',
+      features: [
+        '7 Days / 6 Nights',
+        '5-Star Resorts',
+        'All Meals + Premium Dining',
+        'Private Experiences',
+        'Luxury Vehicles',
+        'Personal Guide',
+        'VIP Access',
+        'Spa & Wellness',
+        'Photography Service',
+        'Concierge Support'
+      ],
+      popular: false
+    }
+  ];
+
+  const stories = [
+    {
+      id: 1,
+      name: 'Priya Sharma',
+      location: 'Mumbai',
+      quote: 'Wanderlust Travels turned my dream Ladakh trip into reality. The untouched landscapes and the warmth of the locals made it a life-changing journey!',
+      avatar: '👩‍🦱'
+    },
+    {
+      id: 2,
+      name: 'Rahul Verma',
+      location: 'Delhi',
+      quote: 'The Kerala backwaters experience was magical! Every moment felt like a scene from a movie. Can\'t wait for my next adventure with them.',
+      avatar: '👨‍💼'
+    },
+    {
+      id: 3,
+      name: 'Anjali Patel',
+      location: 'Bangalore',
+      quote: 'From the royal forts of Jaipur to the sacred ghats of Varanasi, every destination was curated to perfection. Truly unforgettable!',
+      avatar: '👩‍🎤'
+    }
+  ];
 
   return (
     <div className="travel-template">
-      {/* Navbar */}
-      <nav className="travel-navbar">
-        <div className="travel-navbar-inner">
-          <div className="travel-logo">Wanderlust Travels</div>
-          <ul className="travel-nav-links">
-            <li><span onClick={() => scrollTo(heroRef)}>Home</span></li>
-            <li><span onClick={() => scrollTo(statsRef)}>Stats</span></li>
-            <li><span onClick={() => scrollTo(destinationsRef)}>Destinations</span></li>
-            <li><span onClick={() => scrollTo(whyUsRef)}>Why Us</span></li>
-            <li><span onClick={() => scrollTo(testimonialsRef)}>Reviews</span></li>
-            <li><span onClick={() => scrollTo(contactRef)}>Contact</span></li>
-          </ul>
-          <div className="travel-nav-right">
-            <button className="travel-mobile-toggle"><FiMenu /></button>
+      {/* Floating Navigation */}
+      <nav className="floating-nav">
+        <div className="nav-container">
+          <div className="nav-logo">
+            <span className="logo-icon">✈</span>
+            <span className="logo-text">Wanderlust Travels</span>
           </div>
+          <div className="nav-links">
+            <button onClick={() => scrollTo(heroRef)}>Home</button>
+            <button onClick={() => scrollTo(destinationsRef)}>Destinations</button>
+            <button onClick={() => scrollTo(packagesRef)}>Packages</button>
+            <button onClick={() => scrollTo(storiesRef)}>Stories</button>
+            <button onClick={() => scrollTo(contactRef)}>Contact</button>
+          </div>
+          <button className="nav-cta" onClick={openBookingModal}>Book Trip</button>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="travel-hero" ref={heroRef}>
-        <div className="travel-hero-bg" />
-        <div className="travel-hero-overlay" />
-        <div className="travel-container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="travel-hero-content"
-          >
-            <div className="travel-hero-badge">
-              <FiGlobe size={14} /> Explore the World
-            </div>
-            <h1>Your Next <span>Adventure</span> Awaits</h1>
-            <p>Discover breathtaking destinations, curated travel packages, and unforgettable experiences. Your dream vacation is just one click away.</p>
-            <div className="travel-hero-buttons">
-              <span className="travel-btn travel-btn-primary" onClick={() => scrollTo(destinationsRef)}>
-                Explore Destinations <FiArrowRight />
-              </span>
-              <span className="travel-btn travel-btn-secondary" onClick={() => scrollTo(statsRef)}>
-                Learn More
-              </span>
-            </div>
-          </motion.div>
+      {/* Hero Section with Parallax */}
+      <section ref={heroRef} className="hero-section">
+        <div className="parallax-bg">
+          <div className="hero-overlay"></div>
         </div>
-      </section>
-
-      {/* Stats */}
-      <section className="travel-stats" ref={statsRef}>
-        <div className="travel-container">
-          <div className="travel-stats-grid">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="travel-stat-card"
-            >
-              <h3>500+</h3>
-              <p>Destinations</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="travel-stat-card"
-            >
-              <h3>10K+</h3>
-              <p>Happy Travelers</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="travel-stat-card"
-            >
-              <h3>4.9</h3>
-              <p>Average Rating</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="travel-stat-card"
-            >
-              <h3>15+</h3>
-              <p>Years Experience</p>
-            </motion.div>
+        <div className="hero-content">
+          <span className="hero-badge">Adventure Awaits</span>
+          <h1 className="hero-title">
+            Explore The <span className="highlight">Untamed</span> World
+          </h1>
+          <p className="hero-subtitle">
+            Journey beyond boundaries. Discover hidden trails, untouched landscapes, 
+            and create memories that last a lifetime.
+          </p>
+          <div className="hero-actions">
+            <button className="btn-explore" onClick={() => scrollTo(destinationsRef)}>
+              <span>Explore Now</span>
+              <span className="arrow">→</span>
+            </button>
+            <button className="btn-watch">
+              <span className="play-icon">▶</span>
+              <span>Watch Stories</span>
+            </button>
           </div>
+          <div className="hero-stats">
+            <div className="stat">
+              <span className="stat-number">500+</span>
+              <span className="stat-label">Adventures</span>
+            </div>
+            <div className="stat">
+              <span className="stat-number">50K+</span>
+              <span className="stat-label">Happy Travelers</span>
+            </div>
+            <div className="stat">
+              <span className="stat-number">100+</span>
+              <span className="stat-label">Destinations</span>
+            </div>
+          </div>
+        </div>
+        <div className="scroll-indicator">
+          <span>Scroll to Explore</span>
+          <div className="scroll-arrow">↓</div>
         </div>
       </section>
 
       {/* Popular Destinations */}
-      <section className="travel-destinations" ref={destinationsRef}>
-        <div className="travel-container">
-          <div className="travel-section-header">
-            <h2>Popular <span>Destinations</span></h2>
-            <p>Handpicked destinations for your next unforgettable journey</p>
+      <section ref={destinationsRef} className="destinations-section">
+        <div className="section-container">
+          <div className="section-header">
+            <span className="section-tag">Popular Destinations</span>
+            <h2>Where Will Your Next <span className="highlight">Adventure</span> Take You?</h2>
+            <p>Handpicked destinations that promise unforgettable experiences</p>
           </div>
-          <div className="travel-destinations-grid">
-            {destinations.map((dest, index) => (
-              <motion.div
-                key={dest.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="travel-destination-card"
-              >
-                <div className="travel-destination-image">
-                  <span className="travel-destination-emoji">{dest.emoji}</span>
+          <div className="destinations-grid">
+            {destinations.map(dest => (
+              <div key={dest.id} className="destination-card">
+                <div className="card-image">
+                  <img src={dest.image} alt={dest.name} />
+                  <div className="card-overlay">
+                    <span className="dest-price">{dest.price}</span>
+                  </div>
                 </div>
-                <div className="travel-destination-info">
+                <div className="card-content">
                   <h3>{dest.name}</h3>
-                  <p>{dest.desc}</p>
-                  <div className="travel-destination-meta">
-                    <span className="travel-destination-duration">
-                      <FiCalendar size={13} /> {dest.duration}
-                    </span>
-                    <span className="travel-destination-rating">
-                      <FiStar size={14} fill="#0ea5e9" /> {dest.rating}
-                    </span>
-                  </div>
-                  <div className="travel-destination-price-row">
-                    <span className="travel-destination-price">{formatPrice(dest.price)}</span>
-                    <span className="travel-destination-per">{dest.per}</span>
-                  </div>
-                  <button
-                    className="travel-btn travel-btn-primary travel-btn-full"
-                    onClick={() => openDemo('booking', dest.name)}
-                  >
-                    Book Trip
-                  </button>
+                  <p>{dest.tagline}</p>
+                  <button className="btn-dest" onClick={openBookingModal}>Explore Trip →</button>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="travel-why-us" ref={whyUsRef}>
-        <div className="travel-container">
-          <div className="travel-section-header">
-            <h2>Why <span>Choose Us</span></h2>
-            <p>We go above and beyond to make every trip extraordinary</p>
+      {/* Why Travel With Us */}
+      <section ref={whyUsRef} className="features-section">
+        <div className="section-container">
+          <div className="section-header">
+            <span className="section-tag">Why Travel With Us</span>
+            <h2>Your Adventure, <span className="highlight">Our Passion</span></h2>
+            <p>We don't just plan trips, we craft experiences that stay with you forever</p>
           </div>
-          <div className="travel-features-grid">
+          <div className="features-grid">
             {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="travel-feature-card"
-              >
-                <div className="travel-feature-icon">{feature.icon}</div>
+              <div key={index} className="feature-card">
+                <div className="feature-icon">{feature.icon}</div>
                 <h3>{feature.title}</h3>
-                <p>{feature.desc}</p>
-              </motion.div>
+                <p>{feature.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="travel-testimonials" ref={testimonialsRef}>
-        <div className="travel-container">
-          <div className="travel-section-header">
-            <h2>Traveler <span>Reviews</span></h2>
-            <p>See what our happy travelers have to say</p>
+      {/* Travel Packages Comparison */}
+      <section ref={packagesRef} className="packages-section">
+        <div className="section-container">
+          <div className="section-header">
+            <span className="section-tag">Travel Packages</span>
+            <h2>Choose Your <span className="highlight">Adventure Style</span></h2>
+            <p>Flexible packages designed to match every traveler's dream</p>
           </div>
-          <div className="travel-testimonials-grid">
-            {testimonials.map((review, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="travel-testimonial-card"
-              >
-                <div className="travel-testimonial-stars">
-                  {Array.from({ length: review.rating }).map((_, i) => (
-                    <FiStar key={i} size={14} fill="#0ea5e9" />
-                  ))}
-                </div>
-                <p className="travel-testimonial-text">"{review.text}"</p>
-                <div className="travel-testimonial-author">
-                  <div className="travel-testimonial-avatar">{review.avatar}</div>
-                  <div>
-                    <h4>{review.name}</h4>
-                    <p>Traveled to {review.trip}</p>
+          <div className="packages-grid">
+            {packages.map(pkg => (
+              <div key={pkg.id} className={`package-card ${pkg.popular ? 'popular' : ''}`}>
+                {pkg.popular && <div className="popular-badge">Most Popular</div>}
+                <div className="package-header">
+                  <h3>{pkg.name}</h3>
+                  <div className="price">
+                    <span className="amount">{pkg.price}</span>
+                    <span className="period">{pkg.period}</span>
                   </div>
                 </div>
-              </motion.div>
+                <ul className="package-features">
+                  {pkg.features.map((feature, idx) => (
+                    <li key={idx}>
+                      <span className="check">✓</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <button 
+                  className={`btn-package ${pkg.popular ? 'btn-primary' : 'btn-secondary'}`}
+                  onClick={openBookingModal}
+                >
+                  Book Now
+                </button>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact */}
-      <section className="travel-contact" ref={contactRef}>
-        <div className="travel-container">
-          <div className="travel-contact-grid">
-            <div className="travel-contact-info">
-              <h2>Let's <span>Connect</span></h2>
-              <p>Ready to plan your dream trip? Reach out to our travel experts and we'll create a personalized itinerary just for you.</p>
-              <div className="travel-info-item">
-                <FiPhone /> <span>+91 98765 43210</span>
+      {/* Traveler Stories */}
+      <section ref={storiesRef} className="stories-section">
+        <div className="section-container">
+          <div className="section-header">
+            <span className="section-tag">Traveler Stories</span>
+            <h2>Voices From <span className="highlight">The Road</span></h2>
+            <p>Real stories from real travelers who explored with us</p>
+          </div>
+          <div className="stories-grid">
+            {stories.map(story => (
+              <div key={story.id} className="story-card">
+                <div className="story-quote">"</div>
+                <p className="story-text">{story.quote}</p>
+                <div className="story-author">
+                  <span className="author-avatar">{story.avatar}</span>
+                  <div className="author-info">
+                    <span className="author-name">{story.name}</span>
+                    <span className="author-location">{story.location}</span>
+                  </div>
+                </div>
               </div>
-              <div className="travel-info-item">
-                <FiMail /> <span>hello@wanderlusttravels.com</span>
-              </div>
-              <div className="travel-info-item">
-                <FiMapPin /> <span>123 Travel Avenue, Mumbai, India</span>
-              </div>
-              <div className="travel-info-item">
-                <FiClock /> <span>Mon-Sat: 9:00 AM - 7:00 PM</span>
-              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section ref={newsletterRef} className="newsletter-section">
+        <div className="section-container">
+          <div className="newsletter-content">
+            <div className="newsletter-text">
+              <span className="section-tag">Stay Connected</span>
+              <h2>Get <span className="highlight">Exclusive</span> Travel Deals</h2>
+              <p>Subscribe to our newsletter and be the first to know about special offers, new destinations, and travel tips.</p>
             </div>
-            <div className="travel-contact-form">
-              <div className="travel-form-row">
-                <div className="travel-form-group">
-                  <label>Your Name</label>
-                  <input type="text" placeholder="John Doe" />
-                </div>
-                <div className="travel-form-group">
-                  <label>Email Address</label>
-                  <input type="email" placeholder="john@example.com" />
-                </div>
-              </div>
-              <div className="travel-form-group">
-                <label>Subject</label>
-                <input type="text" placeholder="How can we help?" />
-              </div>
-              <div className="travel-form-group">
-                <label>Message</label>
-                <textarea placeholder="Tell us about your dream trip..." />
-              </div>
-              <button
-                className="travel-btn travel-btn-primary travel-btn-full"
-                onClick={() => openDemo('booking', 'Contact Message')}
-              >
-                <FiSend /> Send Message
-              </button>
+            <div className="newsletter-form">
+              <input type="email" placeholder="Enter your email address" />
+              <button className="btn-subscribe">Subscribe Now</button>
             </div>
           </div>
         </div>
       </section>
 
-      <TemplateFooter name="Wanderlust Travels" onSettingsClick={() => setShowSettings(true)} />
+      {/* Contact Section */}
+      <section ref={contactRef} className="contact-section">
+        <div className="section-container">
+          <div className="section-header">
+            <span className="section-tag">Get In Touch</span>
+            <h2>Ready For Your Next <span className="highlight">Adventure</span>?</h2>
+            <p>We'd love to help you plan your dream trip</p>
+          </div>
+          <div className="contact-grid">
+            <div className="contact-info">
+              <div className="contact-item">
+                <span className="contact-icon">📞</span>
+                <div>
+                  <h4>Call Us</h4>
+                  <p>+91 XXXXX XXXXX</p>
+                </div>
+              </div>
+              <div className="contact-item">
+                <span className="contact-icon">✉️</span>
+                <div>
+                  <h4>Email Us</h4>
+                  <p>example@gmail.com</p>
+                </div>
+              </div>
+              <div className="contact-item">
+                <span className="contact-icon">📸</span>
+                <div>
+                  <h4>Follow Us</h4>
+                  <p>@mohammad_s4kib</p>
+                </div>
+              </div>
+            </div>
+            <div className="contact-form">
+              <input type="text" placeholder="Your Name" />
+              <input type="email" placeholder="Your Email" />
+              <input type="tel" placeholder="Your Phone" />
+              <textarea placeholder="Your Message" rows="4"></textarea>
+              <button className="btn-send" onClick={openBookingModal}>Send Message</button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <DemoModal
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}
-        type={modalType}
-        itemName={modalItem}
+      {/* Settings Button */}
+      <button className="settings-btn" onClick={() => setSettingsOpen(true)}>
+        ⚙
+      </button>
+
+      {/* Footer */}
+      <TemplateFooter 
+        templateName="Wanderlust Travels"
+        onSettingsClick={() => setSettingsOpen(true)}
+      />
+
+      {/* Modals */}
+      <DemoModal 
+        isOpen={modalOpen} 
+        onClose={() => setModalOpen(false)} 
+        type={modalType} 
+      />
+      <Settings 
+        isOpen={settingsOpen} 
+        onClose={() => setSettingsOpen(false)} 
       />
     </div>
   );
