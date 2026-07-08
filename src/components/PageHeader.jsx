@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './PageHeader.css';
 
@@ -22,7 +23,7 @@ export default function PageHeader({ title, subtitle, breadcrumbs = [] }) {
                 <span key={index}>
                   {index > 0 && <span className="breadcrumb-separator">/</span>}
                   {crumb.link ? (
-                    <a href={crumb.link} className="breadcrumb-link">{crumb.label}</a>
+                    <Link to={crumb.link} className="breadcrumb-link">{crumb.label}</Link>
                   ) : (
                     <span className="breadcrumb-current">{crumb.label}</span>
                   )}
