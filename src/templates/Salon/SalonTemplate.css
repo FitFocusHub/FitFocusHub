@@ -1,0 +1,622 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.salon-app {
+  font-family: 'Inter', sans-serif;
+  background: #0a0a0f;
+  color: #e2e2e2;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+.salon-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+.salon-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.9rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.salon-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.salon-logo-icon {
+  font-size: 1.3rem;
+  color: #a855f7;
+}
+
+.salon-nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.salon-nav-links a {
+  color: #a0a0b0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.salon-nav-links a:hover {
+  color: #a855f7;
+}
+
+.salon-nav-settings {
+  background: none;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: #a855f7;
+  padding: 0.45rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s;
+}
+
+.salon-nav-settings:hover {
+  background: rgba(168, 85, 247, 0.15);
+}
+
+/* HERO */
+.salon-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 30% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 60%),
+              #0a0a0f;
+}
+
+.salon-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a855f7' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.salon-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 2rem;
+}
+
+.salon-hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.salon-accent {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.salon-hero-content p {
+  font-size: 1.15rem;
+  color: #a0a0b0;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.salon-hero-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.salon-btn-primary {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  color: #fff;
+  border: none;
+  padding: 0.85rem 2rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 25px rgba(168, 85, 247, 0.35);
+}
+
+.salon-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 35px rgba(168, 85, 247, 0.5);
+}
+
+.salon-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #a855f7;
+  border: 2px solid rgba(168, 85, 247, 0.4);
+  padding: 0.85rem 2rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.salon-btn-secondary:hover {
+  background: rgba(168, 85, 247, 0.1);
+  border-color: #a855f7;
+}
+
+.salon-hero-shape {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: #0a0a0f;
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+/* SECTIONS */
+.salon-section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.salon-section-tag {
+  display: inline-block;
+  background: rgba(168, 85, 247, 0.1);
+  color: #a855f7;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.salon-section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+
+.salon-section-header p {
+  color: #8888a0;
+  font-size: 1.05rem;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+/* SERVICES */
+.salon-services {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.salon-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.salon-service-card {
+  background: rgba(20, 20, 30, 0.6);
+  border: 1px solid rgba(168, 85, 247, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s;
+}
+
+.salon-service-card:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(168, 85, 247, 0.1);
+}
+
+.salon-service-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.2));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: #a855f7;
+  margin-bottom: 1.2rem;
+}
+
+.salon-service-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.salon-service-desc {
+  font-size: 0.9rem;
+  color: #8888a0;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.salon-service-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.salon-service-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.salon-service-duration {
+  color: #8888a0;
+  font-size: 0.85rem;
+}
+
+.salon-service-btn {
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: #a855f7;
+  padding: 0.7rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.salon-service-btn:hover {
+  background: rgba(168, 85, 247, 0.1);
+  border-color: #a855f7;
+}
+
+/* TEAM */
+.salon-team {
+  padding: 6rem 2rem;
+  background: rgba(15, 15, 22, 0.5);
+}
+
+.salon-team-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.salon-team-card {
+  background: rgba(20, 20, 30, 0.7);
+  border: 1px solid rgba(168, 85, 247, 0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.salon-team-card:hover {
+  border-color: rgba(168, 85, 247, 0.25);
+  transform: translateY(-4px);
+}
+
+.salon-team-avatar {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.salon-team-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+
+.salon-team-role {
+  display: block;
+  color: #a855f7;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.salon-team-exp {
+  display: block;
+  color: #8888a0;
+  font-size: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.salon-team-specs {
+  color: #666680;
+  font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+}
+
+.salon-team-stars {
+  display: flex;
+  justify-content: center;
+  gap: 0.2rem;
+  color: #f59e0b;
+  font-size: 0.85rem;
+}
+
+/* PRICING */
+.salon-pricing {
+  padding: 6rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.salon-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.salon-pricing-card {
+  background: rgba(20, 20, 30, 0.6);
+  border: 1px solid rgba(168, 85, 247, 0.1);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.salon-pricing-card:hover {
+  transform: translateY(-4px);
+}
+
+.salon-pricing-popular {
+  border-color: rgba(168, 85, 247, 0.4);
+  background: rgba(168, 85, 247, 0.08);
+  box-shadow: 0 12px 40px rgba(168, 85, 247, 0.15);
+}
+
+.salon-pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  color: #fff;
+  padding: 0.3rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.salon-pricing-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+
+.salon-pricing-price {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+}
+
+.salon-pricing-card ul {
+  list-style: none;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.salon-pricing-card li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.06);
+  color: #b0b0c0;
+  font-size: 0.9rem;
+}
+
+.salon-pricing-check {
+  color: #a855f7;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* BOOKING */
+.salon-booking {
+  padding: 6rem 2rem;
+  background: rgba(15, 15, 22, 0.5);
+}
+
+.salon-booking-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.salon-booking-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.salon-booking-text p {
+  color: #8888a0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.salon-booking-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.salon-booking-form input,
+.salon-booking-form select {
+  background: rgba(20, 20, 30, 0.8);
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  color: #e2e2e2;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.3s;
+}
+
+.salon-booking-form input:focus,
+.salon-booking-form select:focus {
+  outline: none;
+  border-color: #a855f7;
+}
+
+.salon-booking-form input::placeholder {
+  color: #555568;
+}
+
+.salon-booking-form .salon-btn-primary {
+  grid-column: 1 / -1;
+}
+
+/* CONTACT */
+.salon-contact {
+  padding: 6rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.salon-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.salon-contact-card {
+  background: rgba(20, 20, 30, 0.6);
+  border: 1px solid rgba(168, 85, 247, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.salon-contact-card:hover {
+  border-color: rgba(168, 85, 247, 0.25);
+}
+
+.salon-contact-icon {
+  font-size: 1.5rem;
+  color: #a855f7;
+  margin-bottom: 1rem;
+}
+
+.salon-contact-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.salon-contact-card p {
+  color: #8888a0;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .salon-nav-links {
+    display: none;
+  }
+
+  .salon-hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .salon-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .salon-booking-content {
+    grid-template-columns: 1fr;
+  }
+
+  .salon-booking-form {
+    grid-template-columns: 1fr;
+  }
+
+  .salon-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .salon-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .salon-team-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

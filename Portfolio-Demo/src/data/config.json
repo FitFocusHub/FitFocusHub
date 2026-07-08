@@ -1,0 +1,33 @@
+{
+  "agencyName": "Your Website Name",
+  "tagline": "Creative Portfolio & Design Agency",
+  "description": "We create stunning digital experiences through graphic design, video editing, and web development.",
+  "email": "fitfocushub2@gmail.com",
+  "phone": "+91 99302 71670",
+  "whatsapp": "919930271670",
+  "address": "789 Creative Street, Mumbai, Maharashtra, India",
+  "logo": "/logo.svg",
+  "social": {
+    "facebook": "https://facebook.com/example",
+    "instagram1": "https://instagram.com/mohammad_s4kib",
+    "instagram2": "https://instagram.com/abhaytiwari6434",
+    "twitter": "https://twitter.com/example",
+    "linkedin": "https://linkedin.com/company/example",
+    "youtube": "https://youtube.com/@example",
+    "dribbble": "https://dribbble.com/example",
+    "behance": "https://behance.net/example"
+  },
+  "stats": {
+    "projectsCompleted": 200,
+    "happyClients": 150,
+    "teamMembers": 10,
+    "yearsExperience": 5
+  },
+  "businessHours": "Mon - Sat: 9:00 AM - 7:00 PM",
+  "copyrightYear": 2026,
+  "apiSettings": {
+    "paymentGateway": "",
+    "emailService": "",
+    "analytics": ""
+  }
+}

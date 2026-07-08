@@ -1,0 +1,31 @@
+{
+  "agencyName": "Your Website Name",
+  "tagline": "Premium Gym & Fitness Center",
+  "description": "Transform your body and mind with our state-of-the-art facilities and expert trainers.",
+  "email": "fitfocushub2@gmail.com",
+  "phone": "+91 99302 71670",
+  "whatsapp": "919930271670",
+  "address": "123 Fitness Street, Mumbai, Maharashtra, India",
+  "logo": "/logo.svg",
+  "social": {
+    "facebook": "https://facebook.com/example",
+    "instagram1": "https://instagram.com/mohammad_s4kib",
+    "instagram2": "https://instagram.com/abhaytiwari6434",
+    "twitter": "https://twitter.com/example",
+    "linkedin": "https://linkedin.com/company/example",
+    "youtube": "https://youtube.com/@example"
+  },
+  "stats": {
+    "members": 500,
+    "trainers": 15,
+    "classes": 50,
+    "yearsExperience": 5
+  },
+  "businessHours": "Mon - Sun: 5:00 AM - 11:00 PM",
+  "copyrightYear": 2026,
+  "apiSettings": {
+    "paymentGateway": "",
+    "emailService": "",
+    "analytics": ""
+  }
+}

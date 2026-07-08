@@ -1,0 +1,31 @@
+{
+  "agencyName": "Your Website Name",
+  "tagline": "Premium Restaurant & Dining",
+  "description": "Experience culinary excellence with our carefully crafted dishes and exceptional dining atmosphere.",
+  "email": "fitfocushub2@gmail.com",
+  "phone": "+91 99302 71670",
+  "whatsapp": "919930271670",
+  "address": "456 Gourmet Avenue, Mumbai, Maharashtra, India",
+  "logo": "/logo.svg",
+  "social": {
+    "facebook": "https://facebook.com/example",
+    "instagram1": "https://instagram.com/mohammad_s4kib",
+    "instagram2": "https://instagram.com/abhaytiwari6434",
+    "twitter": "https://twitter.com/example",
+    "linkedin": "https://linkedin.com/company/example",
+    "youtube": "https://youtube.com/@example"
+  },
+  "stats": {
+    "dishes": 150,
+    "customers": 5000,
+    "awards": 25,
+    "yearsExperience": 10
+  },
+  "businessHours": "Mon - Sun: 11:00 AM - 11:00 PM",
+  "copyrightYear": 2026,
+  "apiSettings": {
+    "paymentGateway": "",
+    "emailService": "",
+    "analytics": ""
+  }
+}

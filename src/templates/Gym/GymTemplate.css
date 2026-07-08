@@ -1,15 +1,106 @@
 .gym-template {
-  background: #000;
+  background: #0a0a0a;
   color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  min-height: 100vh;
 }
 
+.gym-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Navbar */
+.gym-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10, 10, 10, 0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gym-nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.gym-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+}
+
+.gym-nav-logo svg {
+  color: #ef4444;
+  font-size: 24px;
+}
+
+.gym-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.gym-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.gym-nav-links a {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.gym-nav-links a:hover {
+  color: #ef4444;
+}
+
+.gym-nav-cta {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gym-nav-cta:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+/* Hero */
 .gym-hero {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   padding: 120px 0 80px;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a0a 100%);
+  overflow: hidden;
 }
 
 .gym-hero-bg {
@@ -18,10 +109,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 50px 50px;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(239, 68, 68, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(239, 68, 68, 0.05) 0%, transparent 40%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px;
 }
 
 .gym-hero-content {
@@ -30,18 +123,30 @@
   max-width: 700px;
 }
 
+.gym-hero-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 50px;
+  color: #ef4444;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
 .gym-hero-content h1 {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 20px;
-  font-family: 'Space Grotesk', sans-serif;
 }
 
 .gym-hero-content p {
   color: #9ca3af;
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.7;
   margin-bottom: 32px;
 }
 
@@ -51,18 +156,87 @@
   flex-wrap: wrap;
 }
 
-.gym-services {
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: #ef4444;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.btn-outline:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.btn-full {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Sections */
+.gym-services,
+.gym-pricing,
+.gym-testimonials,
+.gym-contact {
   padding: 100px 0;
 }
 
-.gym-services h2,
-.gym-pricing h2,
-.gym-contact h2 {
+.gym-section-sub {
+  text-align: center;
+  color: #6b7280;
+  font-size: 16px;
+  margin-top: -30px;
+  margin-bottom: 50px;
+}
+
+h2 {
   font-size: 2.5rem;
   font-weight: 800;
   text-align: center;
-  margin-bottom: 50px;
-  font-family: 'Space Grotesk', sans-serif;
+  margin-bottom: 16px;
+}
+
+/* Services */
+.gym-services {
+  background: #0a0a0a;
 }
 
 .gym-services-grid {
@@ -72,8 +246,8 @@
 }
 
 .gym-service-card {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 16px;
   padding: 32px;
   text-align: center;
@@ -81,8 +255,9 @@
 }
 
 .gym-service-card:hover {
-  border-color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.3);
   transform: translateY(-5px);
+  background: rgba(239, 68, 68, 0.03);
 }
 
 .gym-service-icon {
@@ -96,13 +271,18 @@
   margin: 0 auto 20px;
   font-size: 28px;
   color: #ef4444;
+  transition: all 0.3s ease;
+}
+
+.gym-service-card:hover .gym-service-icon {
+  background: rgba(239, 68, 68, 0.2);
+  transform: scale(1.05);
 }
 
 .gym-service-card h3 {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 10px;
-  font-family: 'Space Grotesk', sans-serif;
 }
 
 .gym-service-card p {
@@ -111,9 +291,9 @@
   line-height: 1.6;
 }
 
+/* Pricing */
 .gym-pricing {
-  padding: 100px 0;
-  background: #0a0a0a;
+  background: #050505;
 }
 
 .gym-pricing-grid {
@@ -125,12 +305,17 @@
 }
 
 .gym-price-card {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 16px;
   padding: 40px 32px;
   text-align: center;
   position: relative;
+  transition: all 0.3s ease;
+}
+
+.gym-price-card:hover {
+  transform: translateY(-5px);
 }
 
 .gym-price-card.popular {
@@ -155,7 +340,6 @@
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 16px;
-  font-family: 'Space Grotesk', sans-serif;
 }
 
 .gym-price {
@@ -163,7 +347,12 @@
   font-weight: 800;
   color: #ef4444;
   margin-bottom: 24px;
-  font-family: 'Space Grotesk', sans-serif;
+}
+
+.gym-price-period {
+  font-size: 16px;
+  font-weight: 400;
+  color: #6b7280;
 }
 
 .gym-price-card ul {
@@ -174,83 +363,184 @@
 
 .gym-price-card li {
   padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   color: #d1d5db;
   font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.gym-price-card .btn {
-  width: 100%;
+.gym-price-card li::before {
+  content: "✓";
+  color: #ef4444;
+  font-weight: 700;
 }
 
+/* Testimonials */
+.gym-testimonials {
+  background: #0a0a0a;
+}
+
+.gym-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.gym-testimonial-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+
+.gym-testimonial-card:hover {
+  border-color: rgba(239, 68, 68, 0.3);
+  transform: translateY(-3px);
+}
+
+.gym-testimonial-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.gym-testimonial-stars .star-filled {
+  color: #fbbf24;
+  fill: #fbbf24;
+}
+
+.gym-testimonial-text {
+  color: #d1d5db;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.gym-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gym-testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.gym-testimonial-author span {
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Contact */
 .gym-contact {
-  padding: 100px 0;
+  background: #050505;
 }
 
 .gym-contact-grid {
-  max-width: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 900px;
   margin: 0 auto;
-}
-
-.gym-contact-info h2 {
-  margin-bottom: 30px;
 }
 
 .gym-info-item {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   color: #d1d5db;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .gym-info-item svg {
   color: #ef4444;
-  font-size: 20px;
+  font-size: 22px;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
-.btn {
-  display: inline-flex;
+.gym-info-item strong {
+  color: #fff;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.gym-contact-cta {
+  background: rgba(239, 68, 68, 0.05);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 15px;
-  transition: all 0.3s ease;
-  text-decoration: none;
+  justify-content: center;
+  gap: 16px;
 }
 
-.btn-primary {
-  background: #ef4444;
-  color: #fff;
+.gym-contact-cta svg {
+  font-size: 40px;
+  color: #ef4444;
 }
 
-.btn-primary:hover {
-  background: #dc2626;
-  transform: translateY(-2px);
+.gym-contact-cta h3 {
+  font-size: 22px;
+  font-weight: 700;
 }
 
-.btn-secondary {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: #fff;
+.gym-contact-cta p {
+  color: #9ca3af;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 8px;
 }
 
-.btn-secondary:hover {
-  border-color: #ef4444;
-}
+/* Mobile */
+@media (max-width: 768px) {
+  .gym-nav-toggle {
+    display: block;
+  }
 
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+  .gym-nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 24px;
+    gap: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transform: translateY(-120%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+  }
 
-@media (min-width: 768px) {
-  .container {
-    padding: 0 40px;
+  .gym-nav-links.open {
+    transform: translateY(0);
+  }
+
+  .gym-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gym-pricing-grid {
+    grid-template-columns: 1fr;
   }
 }

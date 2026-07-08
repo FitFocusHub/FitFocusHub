@@ -1,0 +1,126 @@
+.trainers-hero {
+  padding: 150px 0 80px;
+  background: var(--bg-secondary);
+  text-align: center;
+}
+
+.trainers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.trainer-card {
+  text-align: center;
+  padding: 40px 30px;
+}
+
+.trainer-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.avatar-icon {
+  font-size: 3rem;
+  color: white;
+}
+
+.trainer-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.trainer-role {
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.trainer-specialization {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.trainer-experience {
+  margin-bottom: 15px;
+}
+
+.experience-label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.experience-value {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.trainer-certifications {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.certification-tag {
+  padding: 4px 10px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 15px;
+  font-size: 0.75rem;
+  color: var(--primary);
+}
+
+.trainer-bio {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.trainer-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.trainer-social .social-link {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.trainer-social .social-link:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+@media (max-width: 992px) {
+  .trainers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .trainers-grid {
+    grid-template-columns: 1fr;
+  }
+}
