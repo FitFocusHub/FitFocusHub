@@ -30,6 +30,7 @@ export default function Footer() {
   const socialLinks = [
     { icon: FaFacebookF, url: config.social.facebook, label: 'Facebook' },
     { icon: FaInstagram, url: config.social.instagram, label: 'Instagram' },
+    { icon: FaInstagram, url: config.social.instagram2, label: 'Instagram 2' },
     { icon: FaTwitter, url: config.social.twitter, label: 'Twitter' },
     { icon: FaLinkedinIn, url: config.social.linkedin, label: 'LinkedIn' },
     { icon: FaYoutube, url: config.social.youtube, label: 'YouTube' },

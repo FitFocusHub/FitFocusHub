@@ -19,6 +19,16 @@ const Pricing = lazy(() => import('./pages/Pricing'));
 const FAQ = lazy(() => import('./pages/FAQ'));
 const Contact = lazy(() => import('./pages/Contact'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const GymTemplate = lazy(() => import('./templates/Gym'));
+const RestaurantTemplate = lazy(() => import('./templates/Restaurant'));
+const SalonTemplate = lazy(() => import('./templates/Salon'));
+const HotelTemplate = lazy(() => import('./templates/Hotel'));
+const RealEstateTemplate = lazy(() => import('./templates/RealEstate'));
+const ClinicTemplate = lazy(() => import('./templates/Clinic'));
+const CafeTemplate = lazy(() => import('./templates/Cafe'));
+const EducationTemplate = lazy(() => import('./templates/Education'));
+const EcommerceTemplate = lazy(() => import('./templates/Ecommerce'));
+const TravelTemplate = lazy(() => import('./templates/Travel'));
 
 export default function App() {
   const [isDark, setIsDark] = useState(() => {
@@ -63,6 +73,16 @@ export default function App() {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/demo/gym" element={<GymTemplate />} />
+            <Route path="/demo/restaurant" element={<RestaurantTemplate />} />
+            <Route path="/demo/salon" element={<SalonTemplate />} />
+            <Route path="/demo/hotel" element={<HotelTemplate />} />
+            <Route path="/demo/realestate" element={<RealEstateTemplate />} />
+            <Route path="/demo/clinic" element={<ClinicTemplate />} />
+            <Route path="/demo/cafe" element={<CafeTemplate />} />
+            <Route path="/demo/education" element={<EducationTemplate />} />
+            <Route path="/demo/ecommerce" element={<EcommerceTemplate />} />
+            <Route path="/demo/travel" element={<TravelTemplate />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
