@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d946ef"/>
+      <stop offset="100%" style="stop-color:#c026d3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="650" cy="100" r="200" fill="#d946ef" opacity="0.1"/>
+  <circle cx="150" cy="500" r="150" fill="#d946ef" opacity="0.08"/>
+  <rect x="100" y="180" width="600" height="4" rx="2" fill="url(#accent)"/>
+  <text x="400" y="160" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="48" font-weight="bold">ECOMMERCE</text>
+  <text x="400" y="250" text-anchor="middle" fill="#d946ef" font-family="Arial, sans-serif" font-size="24">ONLINE STORE</text>
+  <rect x="250" y="320" width="300" height="80" rx="10" fill="url(#accent)"/>
+  <text x="400" y="370" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="20">SHOP NOW</text>
+  <circle cx="400" cy="480" r="40" fill="none" stroke="#d946ef" stroke-width="3"/>
+  <path d="M385 470 L415 470 L415 490 L385 490 Z M390 475 L390 485 M410 475 L410 485" stroke="#d946ef" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <text x="400" y="560" text-anchor="middle" fill="#6b7280" font-family="Arial, sans-serif" font-size="14">Premium Shopping Experience</text>
+</svg>

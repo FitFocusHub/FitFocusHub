@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#ea580c"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="650" cy="100" r="200" fill="#f97316" opacity="0.1"/>
+  <circle cx="150" cy="500" r="150" fill="#f97316" opacity="0.08"/>
+  <rect x="100" y="180" width="600" height="4" rx="2" fill="url(#accent)"/>
+  <text x="400" y="160" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="48" font-weight="bold">RESTAURANT</text>
+  <text x="400" y="250" text-anchor="middle" fill="#f97316" font-family="Arial, sans-serif" font-size="24">FINE DINING</text>
+  <rect x="250" y="320" width="300" height="80" rx="10" fill="url(#accent)"/>
+  <text x="400" y="370" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="20">VIEW MENU</text>
+  <circle cx="400" cy="480" r="40" fill="none" stroke="#f97316" stroke-width="3"/>
+  <path d="M380 470 Q400 500 420 470" stroke="#f97316" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <text x="400" y="560" text-anchor="middle" fill="#6b7280" font-family="Arial, sans-serif" font-size="14">Culinary Excellence</text>
+</svg>
