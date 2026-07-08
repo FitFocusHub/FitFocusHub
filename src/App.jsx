@@ -1,5 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -31,12 +31,15 @@ const EcommerceTemplate = lazy(() => import('./templates/Ecommerce'));
 const TravelTemplate = lazy(() => import('./templates/Travel'));
 
 export default function App() {
+  const location = useLocation();
   const [isDark, setIsDark] = useState(() => {
     const saved = localStorage.getItem('darkMode');
     return saved !== null ? JSON.parse(saved) : true;
   });
 
   const [isLoading, setIsLoading] = useState(true);
+
+  const isDemoRoute = location.pathname.startsWith('/demo/');
 
   useEffect(() => {
     localStorage.setItem('darkMode', JSON.stringify(isDark));
@@ -57,7 +60,7 @@ export default function App() {
   return (
     <div className={`app ${isDark ? 'dark' : 'light'}`}>
       <ScrollToTop />
-      <Navbar isDark={isDark} toggleDark={toggleDark} />
+      {!isDemoRoute && <Navbar isDark={isDark} toggleDark={toggleDark} />}
       <main>
         <Suspense fallback={<Loading />}>
           <Routes>
@@ -87,8 +90,8 @@ export default function App() {
           </Routes>
         </Suspense>
       </main>
-      <Footer />
-      <WhatsAppButton />
+      {!isDemoRoute && <Footer />}
+      {!isDemoRoute && <WhatsAppButton />}
     </div>
   );
 }
