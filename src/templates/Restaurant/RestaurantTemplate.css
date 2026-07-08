@@ -40,7 +40,7 @@
   font-size: 20px;
   font-weight: 800;
   color: #fff;
-  text-decoration: none;
+  cursor: pointer;
 }
 
 .rest-nav-logo svg {
@@ -63,15 +63,15 @@
   gap: 32px;
 }
 
-.rest-nav-links a {
+.rest-nav-links span {
   color: #9ca3af;
-  text-decoration: none;
   font-size: 14px;
   font-weight: 600;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
-.rest-nav-links a:hover {
+.rest-nav-links span:hover {
   color: #f97316;
 }
 
@@ -85,6 +85,7 @@
   font-size: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-family: inherit;
 }
 
 .rest-nav-cta:hover {
@@ -111,10 +112,7 @@
   bottom: 0;
   background-image:
     radial-gradient(circle at 30% 50%, rgba(249, 115, 22, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 70% 30%, rgba(249, 115, 22, 0.05) 0%, transparent 40%),
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px;
+    radial-gradient(circle at 70% 30%, rgba(249, 115, 22, 0.05) 0%, transparent 40%);
 }
 
 .rest-hero-content {
@@ -133,7 +131,6 @@
   font-size: 13px;
   font-weight: 600;
   margin-bottom: 24px;
-  letter-spacing: 0.5px;
 }
 
 .rest-hero-content h1 {
@@ -204,6 +201,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-family: inherit;
 }
 
 .btn-rest-order:hover {
@@ -212,8 +210,12 @@
 }
 
 /* Sections */
+.rest-stats,
+.rest-about,
 .rest-menu,
+.rest-gallery,
 .rest-offers,
+.rest-testimonials,
 .rest-reservation,
 .rest-contact {
   padding: 100px 0;
@@ -233,6 +235,83 @@ h2 {
   text-align: center;
   margin-bottom: 16px;
 }
+
+/* Stats */
+.rest-stats {
+  background: #050505;
+  padding: 60px 0;
+}
+
+.rest-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+.rest-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.rest-stat-item svg {
+  color: #f97316;
+  font-size: 28px;
+}
+
+.rest-stat-item span {
+  font-size: 32px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.rest-stat-item p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* About */
+.rest-about {
+  background: #0a0a0a;
+}
+
+.rest-about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.rest-about-text p {
+  color: #9ca3af;
+  font-size: 17px;
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.rest-about-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.rest-about-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.rest-about-feature .green { color: #22c55e; }
+.rest-about-feature .orange { color: #f97316; }
+.rest-about-feature .red { color: #ef4444; }
+.rest-about-feature .gold { color: #eab308; }
 
 /* Menu */
 .rest-menu {
@@ -307,6 +386,24 @@ h2 {
   margin: 0;
 }
 
+.rest-menu-tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.rest-menu-tag.veg {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+}
+
+.rest-menu-tag.nonveg {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
 .rest-menu-price {
   color: #f97316;
   font-weight: 800;
@@ -321,9 +418,62 @@ h2 {
   margin-bottom: 16px;
 }
 
+/* Gallery */
+.rest-gallery {
+  background: #050505;
+}
+
+.rest-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.rest-gallery-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+}
+
+.rest-gallery-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(249, 115, 22, 0.05));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rest-gallery-placeholder svg {
+  font-size: 48px;
+  color: rgba(249, 115, 22, 0.3);
+}
+
+.rest-gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+
+.rest-gallery-overlay h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.rest-gallery-overlay p {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
 /* Offers */
 .rest-offers {
-  background: #050505;
+  background: #0a0a0a;
 }
 
 .rest-offers-grid {
@@ -384,6 +534,71 @@ h2 {
 
 .rest-offer-code strong {
   color: #f97316;
+}
+
+/* Testimonials */
+.rest-testimonials {
+  background: #050505;
+}
+
+.rest-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.rest-testimonial-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+
+.rest-testimonial-card:hover {
+  border-color: rgba(249, 115, 22, 0.3);
+  transform: translateY(-3px);
+}
+
+.rest-testimonial-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.rest-testimonial-stars .star-filled {
+  color: #f97316;
+}
+
+.rest-testimonial-text {
+  color: #d1d5db;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.rest-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rest-testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(249, 115, 22, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #f97316;
+}
+
+.rest-testimonial-author span {
+  font-weight: 600;
+  font-size: 15px;
 }
 
 /* Reservation */
@@ -551,6 +766,14 @@ h2 {
     transform: translateY(0);
   }
 
+  .rest-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rest-about-features {
+    grid-template-columns: 1fr;
+  }
+
   .rest-reservation-content {
     grid-template-columns: 1fr;
   }
@@ -560,6 +783,14 @@ h2 {
   }
 
   .rest-offers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rest-testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rest-gallery-grid {
     grid-template-columns: 1fr;
   }
 }
