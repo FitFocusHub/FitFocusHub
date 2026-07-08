@@ -152,7 +152,10 @@ export default function Portfolio() {
                         )}
                       </div>
                       <div className="project-info">
-                        <span className="project-category">{project.category}</span>
+                        <div className="project-header">
+                          <span className="project-category">{project.category}</span>
+                          {project.price && <span className="project-price">{project.price}</span>}
+                        </div>
                         <h3 className="project-name">{project.name}</h3>
                         <p className="project-desc">{project.description}</p>
                         <div className="project-tech">
