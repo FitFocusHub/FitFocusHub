@@ -14,15 +14,18 @@
       "Social Media Links",
       "WhatsApp Integration",
       "1 Month Support",
-      "SSL Certificate"
+      "SSL Certificate",
+      "Admin Access",
+      "Login Page"
     ],
     "excluded": [
       "Custom Animations",
       "E-commerce Features",
-      "Admin Dashboard",
+      "Custom Dashboard",
       "Priority Support"
     ],
-    "cta": "Get Started"
+    "cta": "Get Started",
+    "whatsappMessage": "Hi! I'm interested in the Starter plan (₹2,499) for a 1-5 page website with admin access and login page."
   },
   {
     "id": 2,
@@ -42,13 +45,16 @@
       "Analytics Setup",
       "3 Months Support",
       "SSL Certificate",
-      "Speed Optimization"
+      "Speed Optimization",
+      "Admin Access",
+      "Login Page"
     ],
     "excluded": [
       "E-commerce Features",
       "Custom Animations"
     ],
-    "cta": "Get Started"
+    "cta": "Get Started",
+    "whatsappMessage": "Hi! I'm interested in the Business plan (₹4,999) for a 5-15 page website with custom design and advanced features."
   },
   {
     "id": 3,
@@ -71,12 +77,15 @@
       "6 Months Support",
       "SSL Certificate",
       "CMS Integration",
-      "Blog Setup"
+      "Blog Setup",
+      "Admin Access",
+      "Login Page"
     ],
     "excluded": [
       "E-commerce Features"
     ],
-    "cta": "Get Started"
+    "cta": "Get Started",
+    "whatsappMessage": "Hi! I'm interested in the Premium plan (₹9,999) for a 15-30 page website with premium design, CMS, and blog."
   },
   {
     "id": 4,
@@ -102,9 +111,12 @@
       "Custom Dashboard",
       "AI Integration",
       "Priority Support",
-      "Monthly Maintenance"
+      "Monthly Maintenance",
+      "Admin Access",
+      "Login Page"
     ],
     "excluded": [],
-    "cta": "Contact Us"
+    "cta": "Contact Us",
+    "whatsappMessage": "Hi! I'm interested in the Enterprise plan (₹15,999) for a complete digital solution with e-commerce, AI, and priority support."
   }
 ]

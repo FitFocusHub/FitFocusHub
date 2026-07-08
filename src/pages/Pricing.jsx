@@ -64,7 +64,7 @@ export default function Pricing() {
                     )}
                   </div>
                   <a
-                    href={`https://api.whatsapp.com/send?phone=${config.whatsapp}&text=${encodeURIComponent(`Hello! I am interested in the ${plan.name} plan. Can we discuss?`)}`}
+                    href={`https://api.whatsapp.com/send?phone=${config.whatsapp}&text=${encodeURIComponent(plan.whatsappMessage || `Hi! I'm interested in the ${plan.name} plan (${plan.price}).`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`btn ${plan.popular ? 'btn-primary' : 'btn-outline'} btn-block`}

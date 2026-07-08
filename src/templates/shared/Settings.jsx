@@ -2,12 +2,8 @@ import React, { useState } from 'react';
 import { FiKey, FiSave, FiCheck, FiArrowLeft, FiDatabase, FiCreditCard } from 'react-icons/fi';
 
 const defaultSettings = {
-  firebase_api_key: '',
-  firebase_auth_domain: '',
-  firebase_project_id: '',
-  firebase_storage_bucket: '',
-  firebase_messagingSenderId: '',
-  firebase_app_id: '',
+  mongodb_uri: '',
+  mongodb_db: '',
   razorpay_key_id: '',
   razorpay_key_secret: '',
 };
@@ -51,58 +47,36 @@ export default function Settings({ onBack }) {
           <FiArrowLeft /> Back to Website
         </button>
 
+        {/* MongoDB Section */}
         <div style={{
           background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)',
           borderRadius: '16px', padding: '32px', marginBottom: '24px'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-            <FiDatabase size={24} style={{ color: '#fbbf24' }} />
+            <FiDatabase size={24} style={{ color: '#22c55e' }} />
             <h2 style={{ color: '#fff', fontSize: '20px', fontFamily: 'Space Grotesk, sans-serif', margin: 0 }}>
-              Firebase Configuration
+              MongoDB Configuration
             </h2>
           </div>
           <p style={{ color: '#6b7280', marginBottom: '24px', fontSize: '13px' }}>
-            Authentication + Realtime Database
+            Database connection for user data and orders
           </p>
 
           <div style={{ marginBottom: '16px' }}>
-            <label style={labelStyle}>API Key</label>
-            <input type="text" value={settings.firebase_api_key}
-              onChange={e => handleChange('firebase_api_key', e.target.value)}
-              placeholder="AIzaSyxxxxx" style={inputStyle} />
+            <label style={labelStyle}>MongoDB URI</label>
+            <input type="password" value={settings.mongodb_uri}
+              onChange={e => handleChange('mongodb_uri', e.target.value)}
+              placeholder="mongodb+srv://user:pass@cluster.mongodb.net" style={inputStyle} />
           </div>
           <div style={{ marginBottom: '16px' }}>
-            <label style={labelStyle}>Auth Domain</label>
-            <input type="text" value={settings.firebase_auth_domain}
-              onChange={e => handleChange('firebase_auth_domain', e.target.value)}
-              placeholder="your-app.firebaseapp.com" style={inputStyle} />
-          </div>
-          <div style={{ marginBottom: '16px' }}>
-            <label style={labelStyle}>Project ID</label>
-            <input type="text" value={settings.firebase_project_id}
-              onChange={e => handleChange('firebase_project_id', e.target.value)}
-              placeholder="your-project-id" style={inputStyle} />
-          </div>
-          <div style={{ marginBottom: '16px' }}>
-            <label style={labelStyle}>Storage Bucket</label>
-            <input type="text" value={settings.firebase_storage_bucket}
-              onChange={e => handleChange('firebase_storage_bucket', e.target.value)}
-              placeholder="your-app.appspot.com" style={inputStyle} />
-          </div>
-          <div style={{ marginBottom: '16px' }}>
-            <label style={labelStyle}>Messaging Sender ID</label>
-            <input type="text" value={settings.firebase_messagingSenderId}
-              onChange={e => handleChange('firebase_messagingSenderId', e.target.value)}
-              placeholder="123456789" style={inputStyle} />
-          </div>
-          <div style={{ marginBottom: '16px' }}>
-            <label style={labelStyle}>App ID</label>
-            <input type="text" value={settings.firebase_app_id}
-              onChange={e => handleChange('firebase_app_id', e.target.value)}
-              placeholder="1:123456789:web:xxxxx" style={inputStyle} />
+            <label style={labelStyle}>Database Name</label>
+            <input type="text" value={settings.mongodb_db}
+              onChange={e => handleChange('mongodb_db', e.target.value)}
+              placeholder="my_database" style={inputStyle} />
           </div>
         </div>
 
+        {/* Razorpay Section */}
         <div style={{
           background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)',
           borderRadius: '16px', padding: '32px', marginBottom: '24px'
