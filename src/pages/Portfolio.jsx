@@ -8,6 +8,7 @@ import config from '../data/config.json';
 import AnimatedSection from '../components/AnimatedSection';
 import PageHeader from '../components/PageHeader';
 import ComingSoon from '../components/ComingSoon';
+import { SEO } from '../components/SEO';
 import './Portfolio.css';
 
 const categories = ['All', ...new Set(projects.map(p => p.category))];
@@ -64,6 +65,12 @@ export default function Portfolio() {
 
   return (
     <div className="portfolio-page page-transition">
+      <SEO
+        title="Portfolio"
+        description="View our portfolio of website development, graphic design, video editing, and digital marketing projects. See how we help businesses grow online."
+        keywords="web design portfolio, website development projects, graphic design portfolio, video editing samples, ecommerce websites, landing pages, digital agency work"
+        url="https://fitfocushub.github.io/FitFocusHub/portfolio"
+      />
       <PageHeader
         title="Our Portfolio"
         subtitle="Explore our collection of projects that showcase our expertise and creativity"

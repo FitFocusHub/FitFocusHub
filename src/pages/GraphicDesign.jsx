@@ -4,6 +4,7 @@ import AnimatedSection from '../components/AnimatedSection';
 import PageHeader from '../components/PageHeader';
 import ComingSoon from '../components/ComingSoon';
 import Modal from '../components/Modal';
+import { SEO } from '../components/SEO';
 import posters from '../data/posters.json';
 import logos from '../data/logos.json';
 import businessCards from '../data/businessCards.json';
@@ -26,6 +27,12 @@ export default function GraphicDesign() {
 
   return (
     <div className="graphic-design-page page-transition">
+      <SEO
+        title="Graphic Design"
+        description="Professional graphic design services: poster design, logo design, business card design, Instagram posts, flyers, and digital business cards."
+        keywords="poster design, logo design, business card design, graphic designer, Instagram post design, flyer design, digital business card, brand identity"
+        url="https://fitfocushub.github.io/FitFocusHub/graphic-design"
+      />
       <PageHeader
         title="Graphic Design"
         subtitle="Stunning visual designs that capture attention and communicate your brand message"

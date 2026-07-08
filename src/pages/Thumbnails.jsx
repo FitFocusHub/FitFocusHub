@@ -4,6 +4,7 @@ import AnimatedSection from '../components/AnimatedSection';
 import PageHeader from '../components/PageHeader';
 import ComingSoon from '../components/ComingSoon';
 import Modal from '../components/Modal';
+import { SEO } from '../components/SEO';
 import thumbnails from '../data/thumbnails.json';
 import './Thumbnails.css';
 
@@ -19,6 +20,12 @@ export default function Thumbnails() {
 
   return (
     <div className="thumbnails-page page-transition">
+      <SEO
+        title="Thumbnails"
+        description="Professional thumbnail design for YouTube, gaming, AI, business, and educational content. Eye-catching designs that boost click-through rates."
+        keywords="thumbnail design, YouTube thumbnail, gaming thumbnail, custom thumbnail, click-through rate, video thumbnail designer"
+        url="https://fitfocushub.github.io/FitFocusHub/thumbnails"
+      />
       <PageHeader
         title="Thumbnails"
         subtitle="Eye-catching thumbnails that boost click-through rates and make your content stand out"

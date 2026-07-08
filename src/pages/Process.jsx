@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { FiArrowRight, FiMessageCircle, FiLayers, FiPenTool, FiCode, FiCheckCircle, FiHeadphones } from 'react-icons/fi';
 import AnimatedSection from '../components/AnimatedSection';
 import PageHeader from '../components/PageHeader';
+import { SEO } from '../components/SEO';
 import './Process.css';
 
 export default function Process() {
@@ -54,6 +55,12 @@ export default function Process() {
 
   return (
     <div className="process-page page-transition">
+      <SEO
+        title="Our Process"
+        description="Our proven 6-step web development process: contact, discussion, design, development, testing, and delivery. Transparent workflow for every project."
+        keywords="web development process, how we work, project workflow, design development process, agile methodology, website creation steps"
+        url="https://fitfocushub.github.io/FitFocusHub/process"
+      />
       <PageHeader
         title="Our Process"
         subtitle="A proven 6-step workflow that ensures quality, transparency, and timely delivery"

@@ -8,6 +8,7 @@ import config from '../data/config.json';
 import services from '../data/services.json';
 import AnimatedSection from '../components/AnimatedSection';
 import PageHeader from '../components/PageHeader';
+import { SEO } from '../components/SEO';
 import './Contact.css';
 
 export default function Contact() {
@@ -77,6 +78,12 @@ export default function Contact() {
 
   return (
     <div className="contact-page page-transition">
+      <SEO
+        title="Contact Us"
+        description="Contact FitFocusHub for website development, graphic design, video editing, and digital marketing services. WhatsApp us for instant response."
+        keywords="contact digital agency, website development company, web design contact, graphic design inquiry, video editing service, WhatsApp contact, India"
+        url="https://fitfocushub.github.io/FitFocusHub/contact"
+      />
       <PageHeader
         title="Contact Us"
         subtitle="Ready to start your project? Get in touch with us today!"

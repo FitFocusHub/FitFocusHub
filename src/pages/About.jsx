@@ -7,6 +7,7 @@ import config from '../data/config.json';
 import AnimatedSection from '../components/AnimatedSection';
 import PageHeader from '../components/PageHeader';
 import StatsCounter from '../components/StatsCounter';
+import { SEO } from '../components/SEO';
 import './About.css';
 
 export default function About() {
@@ -26,6 +27,12 @@ export default function About() {
 
   return (
     <div className="about-page page-transition">
+      <SEO
+        title="About Us"
+        description="Learn about FitFocusHub - a premium digital agency with 2+ years of experience in website development, graphic design, video editing, and digital marketing."
+        keywords="about digital agency, web development company India, graphic design agency, video editing service, FitFocusHub, about us"
+        url="https://fitfocushub.github.io/FitFocusHub/about"
+      />
       <PageHeader
         title="About Us"
         subtitle="Learn about our journey, mission, and the team behind FitFocusHub"

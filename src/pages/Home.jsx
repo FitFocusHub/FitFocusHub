@@ -18,6 +18,7 @@ import faq from '../data/faq.json';
 import AnimatedSection from '../components/AnimatedSection';
 import StatsCounter from '../components/StatsCounter';
 import ComingSoon from '../components/ComingSoon';
+import { SEO } from '../components/SEO';
 import './Home.css';
 
 export default function Home() {
@@ -45,6 +46,12 @@ export default function Home() {
 
   return (
     <div className="home page-transition">
+      <SEO
+        title="Home"
+        description="FitFocusHub is a premium digital agency offering website development, graphic design, video editing, landing pages, ecommerce solutions, logo design, business cards, and digital marketing services in India."
+        keywords="digital agency, web development, graphic design, video editing, landing page, ecommerce website, logo design, business card, social media marketing, SEO, React developer, India"
+        url="https://fitfocushub.github.io/FitFocusHub/"
+      />
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-bg">

@@ -5,6 +5,7 @@ import { FiChevronDown, FiChevronUp, FiArrowRight } from 'react-icons/fi';
 import faq from '../data/faq.json';
 import AnimatedSection from '../components/AnimatedSection';
 import PageHeader from '../components/PageHeader';
+import { SEO } from '../components/SEO';
 import './FAQ.css';
 
 export default function FAQ() {
@@ -12,6 +13,12 @@ export default function FAQ() {
 
   return (
     <div className="faq-page page-transition">
+      <SEO
+        title="FAQ"
+        description="Frequently asked questions about FitFocusHub services - pricing, timeline, technologies, maintenance, SEO, and how to get started."
+        keywords="FAQ, frequently asked questions, website development questions, web design pricing, digital agency FAQ, how to build website"
+        url="https://fitfocushub.github.io/FitFocusHub/faq"
+      />
       <PageHeader
         title="FAQ"
         subtitle="Find answers to commonly asked questions about our services and process"

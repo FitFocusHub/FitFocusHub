@@ -6,11 +6,18 @@ import pricing from '../data/pricing.json';
 import config from '../data/config.json';
 import AnimatedSection from '../components/AnimatedSection';
 import PageHeader from '../components/PageHeader';
+import { SEO } from '../components/SEO';
 import './Pricing.css';
 
 export default function Pricing() {
   return (
     <div className="pricing-page page-transition">
+      <SEO
+        title="Pricing"
+        description="Affordable website development pricing: Starter ₹2,499, Business ₹4,999, Premium ₹9,999, Enterprise ₹15,999. One-time payment, no hidden charges."
+        keywords="website price, web development cost, website development pricing, cheap website, affordable website India, one time payment website, website packages"
+        url="https://fitfocushub.github.io/FitFocusHub/pricing"
+      />
       <PageHeader
         title="Pricing"
         subtitle="Transparent pricing plans designed to fit businesses of all sizes"

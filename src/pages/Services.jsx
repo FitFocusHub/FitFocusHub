@@ -14,6 +14,7 @@ import services from '../data/services.json';
 import config from '../data/config.json';
 import AnimatedSection from '../components/AnimatedSection';
 import PageHeader from '../components/PageHeader';
+import { SEO } from '../components/SEO';
 import './Services.css';
 
 const iconMap = {
@@ -36,6 +37,12 @@ const iconMap = {
 export default function Services() {
   return (
     <div className="services-page page-transition">
+      <SEO
+        title="Services"
+        description="Explore our complete range of digital services: website development, landing pages, ecommerce, graphic design, video editing, logo design, social media marketing, and AI integration."
+        keywords="website development, landing page design, ecommerce website, graphic design, video editing, logo design, business card, social media marketing, Google Business Profile, AI integration, digital agency India"
+        url="https://fitfocushub.github.io/FitFocusHub/services"
+      />
       <PageHeader
         title="Our Services"
         subtitle="Comprehensive digital solutions to elevate your brand and drive business growth"

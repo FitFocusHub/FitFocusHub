@@ -5,6 +5,7 @@ import AnimatedSection from '../components/AnimatedSection';
 import PageHeader from '../components/PageHeader';
 import ComingSoon from '../components/ComingSoon';
 import Modal from '../components/Modal';
+import { SEO } from '../components/SEO';
 import videos from '../data/videos.json';
 import './VideoEditing.css';
 
@@ -13,6 +14,12 @@ export default function VideoEditing() {
 
   return (
     <div className="video-editing-page page-transition">
+      <SEO
+        title="Video Editing"
+        description="Professional video editing services: color grading, motion graphics, sound design, masking, 4K export, and social media formats."
+        keywords="video editing, professional video editor, color grading, motion graphics, YouTube video editing, reels editing, masking, video post production"
+        url="https://fitfocushub.github.io/FitFocusHub/video-editing"
+      />
       <PageHeader
         title="Video Editing"
         subtitle="Professional video editing services that bring your stories to life with cinematic quality"
