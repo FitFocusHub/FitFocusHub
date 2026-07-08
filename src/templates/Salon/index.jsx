@@ -1,202 +1,193 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FaInstagram, FaEnvelope, FaCut, FaSpa, FaHandSparkles, FaPaintBrush, FaUserTie, FaHeart, FaStar, FaTimes, FaMapMarkerAlt, FaPhone, FaArrowRight } from 'react-icons/fa';
+import { FiPhone, FiMail, FiMapPin, FiClock, FiArrowRight, FiMenu, FiX, FiStar, FiMessageCircle, FiUsers, FiAward, FiHeart } from 'react-icons/fi';
+import { FaCut, FaSpa, FaHandSparkles, FaPaintBrush, FaUserTie, FaHeart } from 'react-icons/fa';
 import DemoModal from '../shared/DemoModal';
 import Settings from '../shared/Settings';
 import TemplateFooter from '../shared/TemplateFooter';
 import './SalonTemplate.css';
 
-const Salon = () => {
+const salonData = {
+  name: "Glam Studio",
+  tagline: "Where Beauty Meets Art",
+  description: "Premium beauty salon offering hair styling, spa treatments, bridal packages and more. Look your best with our expert stylists.",
+  phone: "+91 98765 43210",
+  email: "info@glamstudio.com",
+  address: "78 Beauty Lane, Pune, Maharashtra 411001",
+  timing: "Mon-Sun: 10:00 AM - 9:00 PM",
+  about: "Glam Studio has been making people look and feel their best since 2018. Our team of expert stylists and beauticians use the latest techniques and premium products.",
+  stats: { clients: 10000, stylists: 8, experience: 6, services: 40 },
+  services: [
+    { icon: <FaCut />, name: "Hair Styling", desc: "Cut, color, blow-dry, treatments and more." },
+    { icon: <FaSpa />, name: "Spa & Wellness", desc: "Relaxing body massage, facials, and aromatherapy." },
+    { icon: <FaHandSparkles />, name: "Nail Art", desc: "Gel nails, acrylics, nail art and pedicure." },
+    { icon: <FaPaintBrush />, name: "Makeup", desc: "Party makeup, bridal looks, and everyday glam." },
+    { icon: <FaUserTie />, name: "Grooming", desc: "Beard trim, facials, and men's grooming." },
+    { icon: <FaHeart />, name: "Bridal Package", desc: "Complete bridal beauty solution for your special day." },
+  ],
+  pricing: [
+    { name: "Basic", price: "₹499", features: ["Hair Cut", "Basic Facial", "Head Massage"] },
+    { name: "Classic", price: "₹1,499", features: ["Hair Cut & Style", "Deep Facial", "Manicure", "Pedicure"], popular: true },
+    { name: "Premium", price: "₹3,999", features: ["Hair Spa", "Luxury Facial", "Full Body Massage", "Nail Art", "Makeup"] },
+  ],
+  testimonials: [
+    { name: "Neha Gupta", rating: 5, text: "Best salon experience ever! The hairstylist understood exactly what I wanted. Love my new look!" },
+    { name: "Priyanka Desai", rating: 5, text: "The bridal package was worth every penny. I looked stunning on my wedding day. Thank you Glam Studio!" },
+    { name: "Riya Singh", rating: 4, text: "Amazing spa treatment. Very relaxing and professional. Will definitely come back." },
+  ]
+};
+
+export default function SalonTemplate() {
   const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState('booking');
+  const [modalItem, setModalItem] = useState('');
   const [showSettings, setShowSettings] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  if (showSettings) {
-    return <Settings onBack={() => setShowSettings(false)} />;
-  }
+  const homeRef = useRef(null);
+  const aboutRef = useRef(null);
+  const servicesRef = useRef(null);
+  const pricingRef = useRef(null);
+  const contactRef = useRef(null);
 
-  const services = [
-    { name: 'Haircut & Styling', icon: FaCut, price: '₹499', duration: '45 min', desc: 'Expert cuts tailored to your face shape and style preference.' },
-    { name: 'Deep Cleansing Facial', icon: FaSpa, price: '₹899', duration: '60 min', desc: 'Rejuvenating facial treatment for glowing, healthy skin.' },
-    { name: 'Full Body Massage', icon: FaHandSparkles, price: '₹1299', duration: '90 min', desc: 'Relaxing therapeutic massage to relieve tension and stress.' },
-    { name: 'Gel Manicure', icon: FaPaintBrush, price: '₹599', duration: '45 min', desc: 'Long-lasting gel polish with nail art and cuticle care.' },
-    { name: 'Spa Pedicure', icon: FaHandSparkles, price: '₹699', duration: '60 min', desc: 'Complete foot care with scrub, mask, and massage.' },
-    { name: 'Bridal Package', icon: FaHeart, price: '₹4999', duration: '4 hrs', desc: 'Complete bridal makeover including hair, makeup, and spa.' },
-  ];
+  const scrollTo = (ref) => { ref.current?.scrollIntoView({ behavior: 'smooth' }); setMobileMenuOpen(false); };
+  const handleBookNow = (item) => { setModalType('booking'); setModalItem(item); setShowModal(true); };
 
-  const stylists = [
-    { name: 'Priya Sharma', role: 'Hair Stylist', exp: '8 years exp', specialties: 'Cuts, Color, Balayage' },
-    { name: 'Ananya Reddy', role: 'Skin Specialist', exp: '6 years exp', specialties: 'Facials, Acne Treatment' },
-    { name: 'Meera Joshi', role: 'Makeup Artist', exp: '10 years exp', specialties: 'Bridal, HD Makeup' },
-    { name: 'Nisha Verma', role: 'Nail Artist', exp: '5 years exp', specialties: 'Nail Art, Gel Polish' },
-  ];
-
-  const packages = [
-    { name: 'Basic Glow', price: '₹1499', features: ['Haircut & Blow Dry', 'Basic Facial', 'Manicure', 'Free Consultation'], popular: false },
-    { name: 'Signature Package', price: '₹2999', features: ['Haircut & Styling', 'Deep Cleansing Facial', 'Gel Manicure & Pedicure', 'Head Massage', 'Free Hair Spa'], popular: true },
-    { name: 'Bridal Royale', price: '₹7999', features: ['Bridal Hairdo', 'HD Makeup', 'Full Body Massage', 'Bridal Facial', 'Manicure & Pedicure', 'Pre-bridal Skin Prep'], popular: false },
-  ];
-
-  const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
+  if (showSettings) return <Settings onBack={() => setShowSettings(false)} />;
 
   return (
-    <div className="salon-app">
-      <DemoModal isOpen={showModal} onClose={() => setShowModal(false)} />
-
+    <div className="salon-template">
+      <DemoModal isOpen={showModal} onClose={() => setShowModal(false)} type={modalType} itemName={modalItem} />
       <nav className="salon-nav">
-        <div className="salon-nav-inner">
-          <div className="salon-logo">
-            <FaCut className="salon-logo-icon" />
-            <span>Your Salon</span>
+        <div className="salon-nav-container">
+          <div className="salon-nav-logo" onClick={() => scrollTo(homeRef)}><FaCut /> {salonData.name}</div>
+          <button className="salon-nav-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>{mobileMenuOpen ? <FiX /> : <FiMenu />}</button>
+          <div className={`salon-nav-links ${mobileMenuOpen ? 'open' : ''}`}>
+            <span onClick={() => scrollTo(homeRef)}>Home</span>
+            <span onClick={() => scrollTo(aboutRef)}>About</span>
+            <span onClick={() => scrollTo(servicesRef)}>Services</span>
+            <span onClick={() => scrollTo(pricingRef)}>Pricing</span>
+            <span onClick={() => scrollTo(contactRef)}>Contact</span>
+            <button className="salon-nav-cta" onClick={() => { handleBookNow('appointment'); setMobileMenuOpen(false); }}>Book Now</button>
           </div>
-          <div className="salon-nav-links">
-            <a href="#services">Services</a>
-            <a href="#team">Stylists</a>
-            <a href="#pricing">Packages</a>
-            <a href="#booking">Book</a>
-            <a href="#contact">Contact</a>
-          </div>
-          <button className="salon-nav-settings" onClick={() => setShowSettings(true)}>Settings</button>
         </div>
       </nav>
 
-      <section className="salon-hero">
-        <div className="salon-hero-overlay"></div>
-        <motion.div className="salon-hero-content" initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-          <h1>Unleash Your <span className="salon-accent">Inner Beauty</span></h1>
-          <p>Premium hair, skin, and nail services crafted to perfection. Experience luxury like never before.</p>
-          <div className="salon-hero-btns">
-            <button className="salon-btn-primary" onClick={() => setShowModal(true)}>Book Appointment</button>
-            <a href="#services" className="salon-btn-secondary">Explore Services <FaArrowRight /></a>
+      <section className="salon-hero" ref={homeRef}>
+        <div className="salon-hero-bg"></div>
+        <div className="salon-container">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="salon-hero-content">
+            <span className="salon-hero-badge">Welcome to {salonData.name}</span>
+            <h1>{salonData.tagline}</h1>
+            <p>{salonData.description}</p>
+            <div className="salon-hero-buttons">
+              <button className="btn-salon btn-salon-primary" onClick={() => handleBookNow('appointment')}>Book Appointment <FiArrowRight /></button>
+              <button className="btn-salon btn-salon-secondary" onClick={() => scrollTo(servicesRef)}>Our Services</button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="salon-stats">
+        <div className="salon-container">
+          <div className="salon-stats-grid">
+            <div className="salon-stat-item"><FiUsers /><span>{salonData.stats.clients}+</span><p>Happy Clients</p></div>
+            <div className="salon-stat-item"><FaCut /><span>{salonData.stats.stylists}</span><p>Expert Stylists</p></div>
+            <div className="salon-stat-item"><FiAward /><span>{salonData.stats.experience}+</span><p>Years Experience</p></div>
+            <div className="salon-stat-item"><FaSpa /><span>{salonData.stats.services}</span><p>Services</p></div>
           </div>
-        </motion.div>
-        <div className="salon-hero-shape"></div>
-      </section>
-
-      <section id="services" className="salon-services">
-        <motion.div className="salon-section-header" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} transition={{ duration: 0.6 }}>
-          <span className="salon-section-tag">What We Offer</span>
-          <h2>Our Premium Services</h2>
-          <p>From hair transformations to skin rejuvenation, we deliver excellence in every service.</p>
-        </motion.div>
-        <div className="salon-services-grid">
-          {services.map((s, i) => (
-            <motion.div key={i} className="salon-service-card" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} transition={{ duration: 0.5, delay: i * 0.1 }}>
-              <div className="salon-service-icon"><s.icon /></div>
-              <h3>{s.name}</h3>
-              <p className="salon-service-desc">{s.desc}</p>
-              <div className="salon-service-meta">
-                <span className="salon-service-price">{s.price}</span>
-                <span className="salon-service-duration">{s.duration}</span>
-              </div>
-              <button className="salon-service-btn" onClick={() => setShowModal(true)}>Book Now</button>
-            </motion.div>
-          ))}
         </div>
       </section>
 
-      <section id="team" className="salon-team">
-        <div className="salon-section-header">
-          <span className="salon-section-tag">Meet The Experts</span>
-          <h2>Our Stylists</h2>
-          <p>Talented professionals dedicated to making you look and feel your best.</p>
-        </div>
-        <div className="salon-team-grid">
-          {stylists.map((s, i) => (
-            <motion.div key={i} className="salon-team-card" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} transition={{ duration: 0.5, delay: i * 0.15 }}>
-              <div className="salon-team-avatar">
-                <FaUserTie />
-              </div>
-              <h3>{s.name}</h3>
-              <span className="salon-team-role">{s.role}</span>
-              <span className="salon-team-exp">{s.exp}</span>
-              <p className="salon-team-specs">{s.specialties}</p>
-              <div className="salon-team-stars">
-                {[...Array(5)].map((_, j) => <FaStar key={j} />)}
-              </div>
-            </motion.div>
-          ))}
+      <section className="salon-about" ref={aboutRef}>
+        <div className="salon-container">
+          <h2>About Us</h2>
+          <p className="salon-section-sub">Your beauty is our passion</p>
+          <div className="salon-about-content">
+            <p>{salonData.about}</p>
+            <div className="salon-about-features">
+              <div className="salon-about-feature"><FaCut className="purple" /> <span>Premium Products</span></div>
+              <div className="salon-about-feature"><FiHeart className="pink" /> <span>Personalized Care</span></div>
+              <div className="salon-about-feature"><FiAward className="gold" /> <span>Award Winning</span></div>
+              <div className="salon-about-feature"><FaSpa className="teal" /> <span>Luxury Experience</span></div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="pricing" className="salon-pricing">
-        <div className="salon-section-header">
-          <span className="salon-section-tag">Choose Your Plan</span>
-          <h2>Packages & Pricing</h2>
-          <p>Affordable luxury packages designed to give you the best value.</p>
-        </div>
-        <div className="salon-pricing-grid">
-          {packages.map((p, i) => (
-            <motion.div key={i} className={`salon-pricing-card ${p.popular ? 'salon-pricing-popular' : ''}`} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} transition={{ duration: 0.5, delay: i * 0.15 }}>
-              {p.popular && <div className="salon-pricing-badge">Most Popular</div>}
-              <h3>{p.name}</h3>
-              <div className="salon-pricing-price">{p.price}</div>
-              <ul>
-                {p.features.map((f, j) => <li key={j}><FaStar className="salon-pricing-check" /> {f}</li>)}
-              </ul>
-              <button className="salon-btn-primary" onClick={() => setShowModal(true)}>Buy Package</button>
-            </motion.div>
-          ))}
+      <section className="salon-services" ref={servicesRef}>
+        <div className="salon-container">
+          <h2>Our Services</h2>
+          <p className="salon-section-sub">Look your best with our expert care</p>
+          <div className="salon-services-grid">
+            {salonData.services.map((service, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="salon-service-card">
+                <div className="salon-service-icon">{service.icon}</div>
+                <h3>{service.name}</h3>
+                <p>{service.desc}</p>
+                <button className="btn-salon btn-salon-sm" onClick={() => handleBookNow(service.name)}>Book Now</button>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="booking" className="salon-booking">
-        <div className="salon-booking-content">
-          <motion.div className="salon-booking-text" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} transition={{ duration: 0.6 }}>
-            <span className="salon-section-tag">Ready for a Makeover?</span>
-            <h2>Book Your Appointment</h2>
-            <p>Schedule your visit in just a few clicks. Walk in as a guest, walk out as royalty.</p>
-            <button className="salon-btn-primary" onClick={() => setShowModal(true)}>Book Appointment</button>
-          </motion.div>
-          <motion.div className="salon-booking-form-wrapper" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} transition={{ duration: 0.6, delay: 0.2 }}>
-            <form className="salon-booking-form" onSubmit={(e) => { e.preventDefault(); setShowModal(true); }}>
-              <input type="text" placeholder="Your Name" />
-              <input type="tel" placeholder="Phone Number" />
-              <input type="email" placeholder="Email Address" />
-              <select defaultValue="">
-                <option value="" disabled>Select Service</option>
-                {services.map((s, i) => <option key={i}>{s.name}</option>)}
-              </select>
-              <input type="date" />
-              <input type="time" />
-              <button type="submit" className="salon-btn-primary">Confirm Booking</button>
-            </form>
-          </motion.div>
+      <section className="salon-pricing" ref={pricingRef}>
+        <div className="salon-container">
+          <h2>Pricing Plans</h2>
+          <p className="salon-section-sub">Affordable luxury for everyone</p>
+          <div className="salon-pricing-grid">
+            {salonData.pricing.map((plan, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className={`salon-price-card ${plan.popular ? 'popular' : ''}`}>
+                {plan.popular && <span className="popular-badge">Most Popular</span>}
+                <h3>{plan.name}</h3>
+                <div className="salon-price">{plan.price}</div>
+                <ul>{plan.features.map((f, j) => <li key={j}>{f}</li>)}</ul>
+                <button className={`btn-salon btn-full ${plan.popular ? 'btn-salon-primary' : 'btn-salon-outline'}`} onClick={() => handleBookNow(plan.name)}>Book Now</button>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="contact" className="salon-contact">
-        <div className="salon-section-header">
-          <span className="salon-section-tag">Get In Touch</span>
+      <section className="salon-testimonials">
+        <div className="salon-container">
+          <h2>What Our Clients Say</h2>
+          <p className="salon-section-sub">Real reviews from real clients</p>
+          <div className="salon-testimonials-grid">
+            {salonData.testimonials.map((t, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="salon-testimonial-card">
+                <div className="salon-testimonial-stars">{Array.from({ length: t.rating }).map((_, j) => <FiStar key={j} className="star-filled" />)}</div>
+                <p>"{t.text}"</p>
+                <div className="salon-testimonial-author"><div className="salon-testimonial-avatar">{t.name.charAt(0)}</div><span>{t.name}</span></div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="salon-contact" ref={contactRef}>
+        <div className="salon-container">
           <h2>Contact Us</h2>
-        </div>
-        <div className="salon-contact-grid">
-          <div className="salon-contact-card">
-            <FaMapMarkerAlt className="salon-contact-icon" />
-            <h4>Visit Us</h4>
-            <p>123 Beauty Lane, Fashion Street, Mumbai, Maharashtra 400001</p>
-          </div>
-          <div className="salon-contact-card">
-            <FaPhone className="salon-contact-icon" />
-            <h4>Call Us</h4>
-            <p>+91 98765 43210</p>
-          </div>
-          <div className="salon-contact-card">
-            <FaEnvelope className="salon-contact-icon" />
-            <h4>Email Us</h4>
-            <p>fitfocushub2@gmail.com</p>
+          <p className="salon-section-sub">Visit us for a transformation</p>
+          <div className="salon-contact-grid">
+            <div className="salon-contact-info">
+              <div className="salon-info-item"><FiMapPin /><div><strong>Address</strong><br />{salonData.address}</div></div>
+              <div className="salon-info-item"><FiPhone /><div><strong>Phone</strong><br />{salonData.phone}</div></div>
+              <div className="salon-info-item"><FiMail /><div><strong>Email</strong><br />{salonData.email}</div></div>
+              <div className="salon-info-item"><FiClock /><div><strong>Timing</strong><br />{salonData.timing}</div></div>
+            </div>
+            <div className="salon-contact-cta">
+              <FiMessageCircle />
+              <h3>Ready for a New Look?</h3>
+              <p>Chat with us on WhatsApp to book your appointment.</p>
+              <a href={`https://api.whatsapp.com/send?phone=919876543210&text=${encodeURIComponent('Hi! I want to book at ' + salonData.name)}`} className="btn-salon btn-salon-primary" target="_blank" rel="noopener noreferrer">Chat on WhatsApp <FiArrowRight /></a>
+            </div>
           </div>
         </div>
       </section>
 
-      <TemplateFooter
-        websiteName="Your Salon"
-        email="fitfocushub2@gmail.com"
-        instagram1="@mohammad_s4kib"
-        instagram2="@abhaytiwari6434"
-        onSettingsClick={() => setShowSettings(true)}
-      />
+      <TemplateFooter name={salonData.name} onSettingsClick={() => setShowSettings(true)} />
     </div>
   );
-};
-
-export default Salon;
+}

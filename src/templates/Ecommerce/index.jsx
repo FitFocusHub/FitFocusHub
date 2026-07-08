@@ -1,318 +1,216 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import {
-  FiShoppingCart, FiHeart, FiSearch, FiMenu, FiX,
-  FiSmartphone, FiWatch, FiHeadphones, FiCamera,
-  FiMonitor, FiWifi, FiStar, FiMapPin, FiPhone,
-  FiMail, FiClock, FiArrowRight, FiTrash2, FiCheck,
-  FiSend, FiPackage, FiTruck, FiShield
-} from 'react-icons/fi';
+import React, { useRef } from 'react';
 import DemoModal from '../shared/DemoModal';
 import Settings from '../shared/Settings';
 import TemplateFooter from '../shared/TemplateFooter';
 import './EcommerceTemplate.css';
 
 const products = [
-  { id: 1, name: 'Wireless Earbuds Pro', category: 'Electronics', price: 2499, oldPrice: 4999, icon: <FiHeadphones />, tag: 'sale', rating: 4.8, reviews: 234 },
-  { id: 2, name: 'Smart Watch Ultra', category: 'Electronics', price: 5999, oldPrice: 9999, icon: <FiWatch />, tag: 'new', rating: 4.7, reviews: 189 },
-  { id: 3, name: 'Slim Fit Denim Jacket', category: 'Fashion', price: 1899, oldPrice: 3299, icon: <FiPackage />, tag: 'hot', rating: 4.5, reviews: 156 },
-  { id: 4, name: '4K Action Camera', category: 'Electronics', price: 7499, oldPrice: 12999, icon: <FiCamera />, tag: 'sale', rating: 4.9, reviews: 312 },
-  { id: 5, name: 'Premium Backpack', category: 'Accessories', price: 1299, oldPrice: 2199, icon: <FiPackage />, tag: 'new', rating: 4.6, reviews: 89 },
-  { id: 6, name: 'Gaming Smartphone', category: 'Electronics', price: 19999, oldPrice: 29999, icon: <FiSmartphone />, tag: 'hot', rating: 4.8, reviews: 445 },
-  { id: 7, name: 'Ultra-Wide Monitor', category: 'Electronics', price: 24999, oldPrice: 39999, icon: <FiMonitor />, tag: 'sale', rating: 4.7, reviews: 178 },
-  { id: 8, name: 'Minimalist Sunglasses', category: 'Accessories', price: 899, oldPrice: 1599, icon: <FiWatch />, tag: 'new', rating: 4.4, reviews: 67 },
+  { id: 1, name: 'Wireless Headphones', price: 149.99, image: 'https://picsum.photos/seed/prod1/400/400', badge: 'New' },
+  { id: 2, name: 'Smart Watch Pro', price: 299.99, image: 'https://picsum.photos/seed/prod2/400/400', badge: 'Hot' },
+  { id: 3, name: 'Laptop Stand', price: 79.99, image: 'https://picsum.photos/seed/prod3/400/400' },
+  { id: 4, name: 'Mechanical Keyboard', price: 189.99, image: 'https://picsum.photos/seed/prod4/400/400', badge: 'Sale' },
+  { id: 5, name: '4K Webcam', price: 129.99, image: 'https://picsum.photos/seed/prod5/400/400' },
+  { id: 6, name: 'USB-C Hub', price: 59.99, image: 'https://picsum.photos/seed/prod6/400/400', badge: 'Popular' },
 ];
 
 const categories = [
-  { name: 'Electronics', icon: <FiWifi />, count: 124 },
-  { name: 'Fashion', icon: <FiPackage />, count: 89 },
-  { name: 'Accessories', icon: <FiWatch />, count: 67 },
-  { name: 'Audio', icon: <FiHeadphones />, count: 43 },
+  { name: 'Electronics', icon: '🔌', count: 234 },
+  { name: 'Wearables', icon: '⌚', count: 128 },
+  { name: 'Accessories', icon: '🎒', count: 312 },
+  { name: 'Audio', icon: '🎧', count: 96 },
+  { name: 'Home Office', icon: '🖥️', count: 175 },
+  { name: 'Gaming', icon: '🎮', count: 89 },
 ];
 
-const formatPrice = (p) => `₹${p.toLocaleString('en-IN')}`;
+const deals = [
+  { name: 'Summer Blowout', discount: '40% OFF', desc: 'On all audio gear this week', image: 'https://picsum.photos/seed/deal1/600/400' },
+  { name: 'Bundle & Save', discount: '$50 OFF', desc: 'When you buy 2 or more items', image: 'https://picsum.photos/seed/deal2/600/400' },
+];
+
+const testimonials = [
+  { name: 'Sarah Mitchell', role: 'Tech Blogger', text: 'ShopVerse has the best tech deals I\'ve found online. Fast shipping and great customer service!', avatar: 'https://i.pravatar.cc/80?img=1' },
+  { name: 'James Park', role: 'Software Engineer', text: 'I\'ve bought 5+ items here and every single one exceeded my expectations. Highly recommended.', avatar: 'https://i.pravatar.cc/80?img=3' },
+  { name: 'Olivia Chen', role: 'Product Designer', text: 'The quality is unmatched at these prices. My go-to store for all my tech needs.', avatar: 'https://i.pravatar.cc/80?img=5' },
+];
 
 export default function EcommerceTemplate() {
-  const [showModal, setShowModal] = useState(false);
-  const [modalType, setModalType] = useState('buy');
-  const [modalItem, setModalItem] = useState('');
-  const [showSettings, setShowSettings] = useState(false);
-  const [showCart, setShowCart] = useState(false);
-  const [cart, setCart] = useState([]);
-  const [toast, setToast] = useState('');
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const [modalType, setModalType] = React.useState('buy');
+  const [modalItem, setModalItem] = React.useState('');
 
-  const openDemo = (type, name) => {
+  const heroRef = useRef(null);
+  const productsRef = useRef(null);
+  const categoriesRef = useRef(null);
+  const dealsRef = useRef(null);
+  const testimonialsRef = useRef(null);
+  const contactRef = useRef(null);
+
+  const scrollTo = (ref) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const openModal = (type, item) => {
     setModalType(type);
-    setModalItem(name);
-    setShowModal(true);
+    setModalItem(item);
+    setModalOpen(true);
   };
-
-  const addToCart = (product) => {
-    setCart(prev => {
-      const exists = prev.find(i => i.id === product.id);
-      if (exists) return prev.map(i => i.id === product.id ? { ...i, qty: i.qty + 1 } : i);
-      return [...prev, { ...product, qty: 1 }];
-    });
-    setToast(`${product.name} added to cart`);
-    setTimeout(() => setToast(''), 2500);
-  };
-
-  const removeFromCart = (id) => {
-    setCart(prev => prev.filter(i => i.id !== id));
-  };
-
-  const cartTotal = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
-  const cartCount = cart.reduce((sum, i) => sum + i.qty, 0);
-
-  if (showSettings) {
-    return <Settings onBack={() => setShowSettings(false)} />;
-  }
 
   return (
-    <div className="ecommerce-template">
-      {/* Navbar */}
-      <nav className="ecommerce-navbar">
-        <div className="ecommerce-navbar-inner">
-          <div className="ecommerce-logo">Your Store</div>
-          <ul className="ecommerce-nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#categories">Categories</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <div className="ecommerce-nav-right">
-            <button className="ecommerce-cart-btn" onClick={() => setShowCart(true)}>
-              <FiShoppingCart />
-              {cartCount > 0 && <span className="ecommerce-cart-count">{cartCount}</span>}
+    <div className="shop-template">
+      <nav className="shop-nav">
+        <div className="shop-nav-inner">
+          <div className="shop-logo">Shop<span>Verse</span></div>
+          <div className="shop-nav-links">
+            <span onClick={() => scrollTo(heroRef)}>Home</span>
+            <span onClick={() => scrollTo(productsRef)}>Products</span>
+            <span onClick={() => scrollTo(categoriesRef)}>Categories</span>
+            <span onClick={() => scrollTo(dealsRef)}>Deals</span>
+            <span onClick={() => scrollTo(testimonialsRef)}>Reviews</span>
+            <span onClick={() => scrollTo(contactRef)}>Contact</span>
+          </div>
+          <div className="shop-nav-actions">
+            <button className="shop-cart-btn" onClick={() => openModal('buy', 'Cart')}>
+              🛒 Cart <span className="shop-cart-count">0</span>
             </button>
-            <button className="ecommerce-mobile-toggle"><FiMenu /></button>
           </div>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="ecommerce-hero" id="home">
-        <div className="ecommerce-hero-bg" />
-        <div className="ecommerce-hero-grid" />
-        <div className="ecommerce-container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="ecommerce-hero-content"
-          >
-            <div className="ecommerce-hero-badge">
-              <FiStar size={14} /> New Season Arrivals
-            </div>
-            <h1>Discover <span>Premium Tech</span> & Lifestyle Products</h1>
-            <p>Shop the latest electronics, fashion, and accessories with unbeatable prices. Free shipping on orders over ₹999.</p>
-            <div className="ecommerce-hero-buttons">
-              <a href="#products" className="ecommerce-btn ecommerce-btn-primary">
-                Shop Now <FiArrowRight />
-              </a>
-              <a href="#categories" className="ecommerce-btn ecommerce-btn-secondary">
-                Browse Categories
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Featured Products */}
-      <section className="ecommerce-products" id="products">
-        <div className="ecommerce-container">
-          <div className="ecommerce-section-header">
-            <h2>Featured <span>Products</span></h2>
-            <p>Handpicked deals on premium electronics, fashion, and accessories</p>
+      <section ref={heroRef} className="shop-hero">
+        <div className="shop-hero-content">
+          <span className="shop-hero-badge">New Arrivals</span>
+          <h1>Discover Premium <span>Tech Products</span></h1>
+          <p>Shop the latest in technology with unbeatable prices and free shipping on orders over $50.</p>
+          <div className="shop-hero-btns">
+            <button className="shop-btn-primary" onClick={() => scrollTo(productsRef)}>Shop Now</button>
+            <button className="shop-btn-secondary" onClick={() => openModal('buy', 'Quick Order')}>Quick Order</button>
           </div>
-          <div className="ecommerce-products-grid">
-            {products.map((product, index) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
-                className="ecommerce-product-card"
-              >
-                <div className="ecommerce-product-image">
-                  {product.icon}
-                  <span className={`ecommerce-product-tag ecommerce-tag-${product.tag}`}>
-                    {product.tag}
-                  </span>
-                </div>
-                <div className="ecommerce-product-info">
-                  <div className="ecommerce-product-category">{product.category}</div>
-                  <h3>{product.name}</h3>
-                  <div className="ecommerce-product-rating">
-                    {'★'.repeat(Math.floor(product.rating))} {product.rating}
-                    <span>({product.reviews})</span>
-                  </div>
-                  <div className="ecommerce-product-bottom">
-                    <div>
-                      <span className="ecommerce-product-price">{formatPrice(product.price)}</span>
-                      <span className="ecommerce-product-old-price">{formatPrice(product.oldPrice)}</span>
-                    </div>
-                  </div>
-                  <div style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
-                    <button
-                      className="ecommerce-btn ecommerce-btn-primary ecommerce-btn-sm"
-                      style={{ flex: 1 }}
-                      onClick={() => addToCart(product)}
-                    >
-                      <FiShoppingCart size={14} /> Add to Cart
-                    </button>
-                    <button
-                      className="ecommerce-btn ecommerce-btn-secondary ecommerce-btn-sm"
-                      onClick={() => openDemo('buy', product.name)}
-                    >
-                      Buy Now
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+          <div className="shop-hero-stats">
+            <div className="shop-stat"><strong>10K+</strong><span>Products</span></div>
+            <div className="shop-stat"><strong>50K+</strong><span>Customers</span></div>
+            <div className="shop-stat"><strong>99%</strong><span>Satisfaction</span></div>
+          </div>
+        </div>
+        <div className="shop-hero-visual">
+          <div className="shop-hero-card">
+            <img src="https://picsum.photos/seed/hero-prod/500/500" alt="Featured product" />
+            <div className="shop-hero-card-tag">Best Seller</div>
           </div>
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="ecommerce-categories" id="categories">
-        <div className="ecommerce-container">
-          <div className="ecommerce-section-header">
-            <h2>Shop by <span>Category</span></h2>
-            <p>Find exactly what you're looking for</p>
-          </div>
-          <div className="ecommerce-categories-grid">
-            {categories.map((cat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="ecommerce-category-card"
-              >
-                <span className="ecommerce-category-icon">{cat.icon}</span>
-                <h3>{cat.name}</h3>
-                <p>{cat.count} Products</p>
-              </motion.div>
-            ))}
-          </div>
+      <section ref={productsRef} className="shop-section shop-products">
+        <div className="shop-section-header">
+          <span className="shop-section-tag">Our Collection</span>
+          <h2>Featured Products</h2>
+          <p>Handpicked favorites loved by our community</p>
+        </div>
+        <div className="shop-products-grid">
+          {products.map((product) => (
+            <div key={product.id} className="shop-product-card">
+              <div className="shop-product-img">
+                <img src={product.image} alt={product.name} />
+                {product.badge && <span className={`shop-badge shop-badge-${product.badge.toLowerCase()}`}>{product.badge}</span>}
+                <div className="shop-product-overlay">
+                  <button onClick={() => openModal('buy', product.name)}>Add to Cart</button>
+                </div>
+              </div>
+              <div className="shop-product-info">
+                <h3>{product.name}</h3>
+                <div className="shop-product-price">
+                  <span className="shop-price">${product.price}</span>
+                </div>
+                <button className="shop-buy-btn" onClick={() => openModal('buy', product.name)}>Buy Now</button>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Contact */}
-      <section className="ecommerce-contact" id="contact">
-        <div className="ecommerce-container">
-          <div className="ecommerce-contact-grid">
-            <div className="ecommerce-contact-info">
-              <h2>Get in <span>Touch</span></h2>
-              <p>Have questions about an order? Need help finding the perfect product? We're here for you.</p>
-              <div className="ecommerce-info-item">
-                <FiPhone /> <span>+91 98765 43210</span>
-              </div>
-              <div className="ecommerce-info-item">
-                <FiMail /> <span>fitfocushub2@gmail.com</span>
-              </div>
-              <div className="ecommerce-info-item">
-                <FiMapPin /> <span>example.com, Your City, India</span>
-              </div>
-              <div className="ecommerce-info-item">
-                <FiClock /> <span>Mon-Sat: 10:00 AM - 8:00 PM</span>
-              </div>
+      <section ref={categoriesRef} className="shop-section shop-categories">
+        <div className="shop-section-header">
+          <span className="shop-section-tag">Browse by Type</span>
+          <h2>Categories</h2>
+        </div>
+        <div className="shop-categories-grid">
+          {categories.map((cat, i) => (
+            <div key={i} className="shop-category-card" onClick={() => openModal('buy', cat.name)}>
+              <div className="shop-category-icon">{cat.icon}</div>
+              <h3>{cat.name}</h3>
+              <span>{cat.count} items</span>
             </div>
-            <div className="ecommerce-contact-form">
-              <div className="ecommerce-form-row">
-                <div className="ecommerce-form-group">
-                  <label>Your Name</label>
-                  <input type="text" placeholder="John Doe" />
-                </div>
-                <div className="ecommerce-form-group">
-                  <label>Email Address</label>
-                  <input type="email" placeholder="john@example.com" />
-                </div>
-              </div>
-              <div className="ecommerce-form-group">
-                <label>Subject</label>
-                <input type="text" placeholder="How can we help?" />
-              </div>
-              <div className="ecommerce-form-group">
-                <label>Message</label>
-                <textarea placeholder="Write your message here..." />
-              </div>
-              <button
-                className="ecommerce-btn ecommerce-btn-primary ecommerce-btn-full"
-                onClick={() => openDemo('order', 'Contact Form')}
-              >
-                <FiSend /> Send Message
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      <TemplateFooter name="Your Store" onSettingsClick={() => setShowSettings(true)} />
-
-      {/* Cart Sidebar */}
-      {showCart && (
-        <>
-          <div className="ecommerce-cart-overlay" onClick={() => setShowCart(false)} />
-          <div className="ecommerce-cart-sidebar">
-            <div className="ecommerce-cart-header">
-              <h3>Your Cart ({cartCount})</h3>
-              <button className="ecommerce-cart-close" onClick={() => setShowCart(false)}><FiX size={22} /></button>
-            </div>
-            <div className="ecommerce-cart-items">
-              {cart.length === 0 ? (
-                <div className="ecommerce-cart-empty">
-                  <div className="ecommerce-cart-empty-icon"><FiShoppingCart size={48} /></div>
-                  <p>Your cart is empty</p>
-                </div>
-              ) : (
-                cart.map(item => (
-                  <div key={item.id} className="ecommerce-cart-item">
-                    <div className="ecommerce-cart-item-image">{item.icon}</div>
-                    <div className="ecommerce-cart-item-details">
-                      <h4>{item.name}</h4>
-                      <p>{formatPrice(item.price)} × {item.qty}</p>
-                    </div>
-                    <button className="ecommerce-cart-item-remove" onClick={() => removeFromCart(item.id)}>
-                      <FiTrash2 size={16} />
-                    </button>
-                  </div>
-                ))
-              )}
-            </div>
-            {cart.length > 0 && (
-              <div className="ecommerce-cart-footer">
-                <div className="ecommerce-cart-total">
-                  <span>Total</span>
-                  <span>{formatPrice(cartTotal)}</span>
-                </div>
-                <button
-                  className="ecommerce-btn ecommerce-btn-primary ecommerce-btn-full"
-                  onClick={() => openDemo('buy', 'Cart Items')}
-                >
-                  <FiShoppingCart /> Proceed to Checkout
-                </button>
-              </div>
-            )}
-          </div>
-        </>
-      )}
-
-      {/* Toast */}
-      {toast && (
-        <div className="ecommerce-toast">
-          <FiCheck size={18} /> {toast}
+      <section ref={dealsRef} className="shop-section shop-deals">
+        <div className="shop-section-header">
+          <span className="shop-section-tag">Limited Time</span>
+          <h2>Hot Deals</h2>
         </div>
-      )}
+        <div className="shop-deals-grid">
+          {deals.map((deal, i) => (
+            <div key={i} className="shop-deal-card">
+              <img src={deal.image} alt={deal.name} />
+              <div className="shop-deal-info">
+                <span className="shop-deal-discount">{deal.discount}</span>
+                <h3>{deal.name}</h3>
+                <p>{deal.desc}</p>
+                <button className="shop-btn-primary" onClick={() => openModal('buy', deal.name)}>Grab Deal</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      {/* Demo Modal */}
-      <DemoModal
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}
-        type={modalType}
-        itemName={modalItem}
-      />
+      <section ref={testimonialsRef} className="shop-section shop-testimonials">
+        <div className="shop-section-header">
+          <span className="shop-section-tag">What People Say</span>
+          <h2>Customer Reviews</h2>
+        </div>
+        <div className="shop-testimonials-grid">
+          {testimonials.map((t, i) => (
+            <div key={i} className="shop-testimonial-card">
+              <div className="shop-stars">★★★★★</div>
+              <p className="shop-testimonial-text">{t.text}</p>
+              <div className="shop-testimonial-author">
+                <img src={t.avatar} alt={t.name} />
+                <div>
+                  <h4>{t.name}</h4>
+                  <span>{t.role}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section ref={contactRef} className="shop-section shop-contact">
+        <div className="shop-contact-grid">
+          <div className="shop-contact-info">
+            <span className="shop-section-tag">Get In Touch</span>
+            <h2>Need Help?</h2>
+            <p>Our support team is here for you 24/7. Reach out anytime.</p>
+            <div className="shop-contact-details">
+              <div className="shop-contact-item"><span>📧</span> support@shopverse.com</div>
+              <div className="shop-contact-item"><span>📞</span> 1-800-SHOP-NOW</div>
+              <div className="shop-contact-item"><span>📍</span> 123 Tech Street, Silicon Valley, CA</div>
+            </div>
+          </div>
+          <form className="shop-contact-form" onSubmit={(e) => { e.preventDefault(); openModal('buy', 'Contact Inquiry'); }}>
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea placeholder="Your Message" rows={5} required></textarea>
+            <button type="submit" className="shop-btn-primary">Send Message</button>
+          </form>
+        </div>
+      </section>
+
+      <TemplateFooter />
+
+      <Settings />
+
+      <DemoModal isOpen={modalOpen} onClose={() => setModalOpen(false)} type={modalType} itemName={modalItem} />
     </div>
   );
 }

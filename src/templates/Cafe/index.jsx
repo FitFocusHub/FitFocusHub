@@ -1,271 +1,271 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FiPhone, FiMail, FiMapPin, FiClock, FiArrowRight, FiCoffee, FiStar, FiSend, FiMenu, FiX } from 'react-icons/fi';
-import { FaCoffee, FaCookie, FaIceCream, FaFire } from 'react-icons/fa';
+import React, { useRef } from 'react';
 import DemoModal from '../shared/DemoModal';
 import Settings from '../shared/Settings';
 import TemplateFooter from '../shared/TemplateFooter';
 import './CafeTemplate.css';
 
-const cafeData = {
-  name: "Your Cafe",
-  tagline: "Sip. Savor. Smile.",
-  description: "Handcrafted beverages and artisan treats made with love, served in a cozy atmosphere that feels like home.",
-  phone: "+91 98765 43210",
-  email: "hello@yourcafe.com",
-  address: "123 Coffee Lane, Bangalore, Karnataka",
-  timing: "Mon-Sun: 7:00 AM - 11:00 PM",
-  menu: {
-    Coffee: [
-      { name: "Espresso", desc: "Rich, bold single shot", price: "₹120", icon: "☕" },
-      { name: "Cappuccino", desc: "Creamy, classic Italian", price: "₹180", icon: "☕" },
-      { name: "Caramel Latte", desc: "Smooth with caramel drizzle", price: "₹220", icon: "🥛" },
-      { name: "Cold Brew", desc: "24-hour steeped perfection", price: "₹200", icon: "🧊" },
-      { name: "Mocha", desc: "Chocolate meets coffee", price: "₹240", icon: "🍫" },
-      { name: "Flat White", desc: "Velvety micro-foam", price: "₹200", icon: "☕" },
-    ],
-    Snacks: [
-      { name: "Avocado Toast", desc: "Fresh, wholesome bite", price: "₹250", icon: "🥑" },
-      { name: "Grilled Sandwich", desc: "Crispy with cheese pull", price: "₹180", icon: "🥪" },
-      { name: "Veg Wrap", desc: "Packed with goodness", price: "₹160", icon: "🌯" },
-      { name: "Nachos", desc: "Crunchy with salsa dip", price: "₹200", icon: "🧀" },
-      { name: "Bruschetta", desc: "Tomato basil delight", price: "₹220", icon: "🍅" },
-      { name: "Hummus Plate", desc: "Creamy with pita bread", price: "₹240", icon: "🫓" },
-    ],
-    Desserts: [
-      { name: "Tiramisu", desc: "Classic Italian layers", price: "₹280", icon: "🍰" },
-      { name: "Cheesecake", desc: "New York style slice", price: "₹260", icon: "🧁" },
-      { name: "Chocolate Brownie", desc: "Warm, gooey, divine", price: "₹200", icon: "🍫" },
-      { name: "Waffle Sundae", desc: "With ice cream & syrup", price: "₹240", icon: "🧇" },
-      { name: "Crème Brûlée", desc: "Caramelized perfection", price: "₹300", icon: "🍮" },
-      { name: "Gelato", desc: "3 scoops of joy", price: "₹220", icon: "🍨" },
-    ],
-    Specials: [
-      { name: "Matcha Latte", desc: "Japanese green tea blend", price: "₹260", icon: "🍵" },
-      { name: "Honey Oat Bowl", desc: "Warm, healthy start", price: "₹200", icon: "🍯" },
-      { name: "Berry Smoothie", desc: "Mixed berries blast", price: "₹240", icon: "🫐" },
-      { name: "Pumpkin Spice Latte", desc: "Seasonal autumn flavor", price: "₹280", icon: "🎃" },
-      { name: "Affogato", desc: "Espresso over gelato", price: "₹260", icon: "☕" },
-      { name: "Turmeric Latte", desc: "Golden milk magic", price: "₹220", icon: "✨" },
-    ],
-  },
-  gallery: [
-    { label: "Cozy Interior", icon: "🪑" },
-    { label: "Coffee Bar", icon: "☕" },
-    { label: "Outdoor Seating", icon: "🌿" },
-    { label: "Bakery Display", icon: "🥐" },
-    { label: "Evening Ambiance", icon: "🕯️" },
-    { label: "Latte Art", icon: "🎨" },
-  ],
-};
-
 export default function CafeTemplate() {
-  const [demoModal, setDemoModal] = useState({ open: false, type: 'order', item: '' });
-  const [showSettings, setShowSettings] = useState(false);
-  const [activeMenu, setActiveMenu] = useState('Coffee');
+  const heroRef = useRef(null);
+  const statsRef = useRef(null);
+  const aboutRef = useRef(null);
+  const menuRef = useRef(null);
+  const specialsRef = useRef(null);
+  const testimonialsRef = useRef(null);
+  const contactRef = useRef(null);
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const [modalType, setModalType] = React.useState('');
 
-  if (showSettings) {
-    return <Settings onBack={() => setShowSettings(false)} />;
-  }
-
-  const openDemo = (item) => {
-    setDemoModal({ open: true, type: 'order', item: item || 'Menu Item' });
+  const scrollTo = (ref) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const menuCategories = Object.keys(cafeData.menu);
-  const currentItems = cafeData.menu[activeMenu] || [];
+  const openModal = (type) => {
+    setModalType(type);
+    setModalOpen(true);
+  };
+
+  const menuCategories = [
+    {
+      name: 'Coffee',
+      items: [
+        { name: 'Espresso', price: '$3.50' },
+        { name: 'Cappuccino', price: '$4.50' },
+        { name: 'Latte', price: '$4.75' },
+        { name: 'Mocha', price: '$5.00' },
+      ],
+    },
+    {
+      name: 'Tea',
+      items: [
+        { name: 'Green Tea', price: '$3.00' },
+        { name: 'Earl Grey', price: '$3.25' },
+        { name: 'Chai Latte', price: '$4.50' },
+        { name: 'Matcha', price: '$5.00' },
+      ],
+    },
+    {
+      name: 'Pastries',
+      items: [
+        { name: 'Croissant', price: '$3.50' },
+        { name: 'Muffin', price: '$2.75' },
+        { name: 'Cinnamon Roll', price: '$3.75' },
+        { name: 'Scone', price: '$3.00' },
+      ],
+    },
+    {
+      name: 'Snacks',
+      items: [
+        { name: 'Avocado Toast', price: '$6.50' },
+        { name: 'Bagel & Cream Cheese', price: '$4.50' },
+        { name: 'Granola Bowl', price: '$5.50' },
+        { name: 'Fruit Cup', price: '$4.00' },
+      ],
+    },
+  ];
+
+  const specials = [
+    {
+      title: 'Morning Brew Special',
+      description: 'Get any coffee drink for $3 before 9 AM!',
+      tag: 'Limited Time',
+    },
+    {
+      title: 'Pastry + Coffee Combo',
+      description: 'Any pastry paired with a drip coffee for just $5.99.',
+      tag: 'Best Value',
+    },
+    {
+      title: 'Happy Hour',
+      description: 'All teas and iced drinks 20% off from 2-4 PM.',
+      tag: 'Daily Deal',
+    },
+  ];
+
+  const testimonials = [
+    {
+      name: 'Sarah M.',
+      text: 'The best coffee I have ever had! The atmosphere is so cozy and the staff are incredibly friendly.',
+      rating: 5,
+    },
+    {
+      name: 'James K.',
+      text: 'My go-to spot for remote work. Great WiFi, amazing pastries, and the espresso is perfect every time.',
+      rating: 5,
+    },
+    {
+      name: 'Emily R.',
+      text: 'Brew & Bean has the most authentic chai latte. I visit at least twice a week!',
+      rating: 5,
+    },
+  ];
 
   return (
     <div className="cafe-template">
-      {/* Navbar */}
       <nav className="cafe-nav">
-        <div className="cafe-nav-inner">
-          <div className="cafe-logo">
-            <div className="cafe-logo-icon"><FiCoffee /></div>
-            {cafeData.name}
-          </div>
-          <ul className="cafe-nav-links">
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#ambiance">Ambiance</a></li>
-            <li><a href="#order">Order</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <button className="cafe-mobile-toggle" aria-label="Menu">
-            <FiMenu />
-          </button>
+        <div className="cafe-nav-brand">Brew & Bean Cafe</div>
+        <div className="cafe-nav-links">
+          <span onClick={() => scrollTo(heroRef)}>Home</span>
+          <span onClick={() => scrollTo(aboutRef)}>About</span>
+          <span onClick={() => scrollTo(menuRef)}>Menu</span>
+          <span onClick={() => scrollTo(specialsRef)}>Specials</span>
+          <span onClick={() => scrollTo(testimonialsRef)}>Reviews</span>
+          <span onClick={() => scrollTo(contactRef)}>Contact</span>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="cafe-hero">
-        <div className="cafe-hero-bg" />
-        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 20px' }}>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="cafe-hero-content"
-          >
-            <div className="cafe-hero-badge">
-              <FiStar size={14} /> Freshly Brewed Every Day
-            </div>
-            <h1>
-              {cafeData.tagline.split(' ').slice(0, 1)}{' '}
-              <span>{cafeData.tagline.split(' ').slice(1).join(' ')}</span>
-            </h1>
-            <p>{cafeData.description}</p>
-            <div className="cafe-hero-buttons">
-              <button className="cafe-btn cafe-btn-primary" onClick={() => openDemo('Your Order')}>
-                Order Now <FiArrowRight />
-              </button>
-              <a href="#menu" className="cafe-btn cafe-btn-secondary">
-                <FiCoffee /> View Menu
-              </a>
-            </div>
-          </motion.div>
+      <section ref={heroRef} className="cafe-hero">
+        <div className="cafe-hero-overlay"></div>
+        <div className="cafe-hero-content">
+          <h1>Brew & Bean Cafe</h1>
+          <p>Handcrafted coffee & fresh bites since 2018</p>
+          <div className="cafe-hero-buttons">
+            <button onClick={() => scrollTo(menuRef)} className="cafe-btn-primary">
+              View Menu
+            </button>
+            <button onClick={() => openModal('order')} className="cafe-btn-secondary">
+              Order Now
+            </button>
+          </div>
         </div>
       </section>
 
-      {/* Menu */}
-      <section id="menu" className="cafe-section">
-        <h2 className="cafe-section-title">Our Menu</h2>
-        <p className="cafe-section-subtitle">Crafted with care, served with love</p>
-        <div className="cafe-menu-tabs">
-          {menuCategories.map(cat => (
-            <button
-              key={cat}
-              className={`cafe-menu-tab ${activeMenu === cat ? 'active' : ''}`}
-              onClick={() => setActiveMenu(cat)}
-            >
-              {cat === 'Coffee' && <FaCoffee style={{ marginRight: 6 }} />}
-              {cat === 'Snacks' && <FaCookie style={{ marginRight: 6 }} />}
-              {cat === 'Desserts' && <FaIceCream style={{ marginRight: 6 }} />}
-              {cat === 'Specials' && <FaFire style={{ marginRight: 6 }} />}
-              {cat}
-            </button>
-          ))}
+      <section ref={statsRef} className="cafe-stats">
+        <div className="cafe-stat">
+          <span className="cafe-stat-number">50K+</span>
+          <span className="cafe-stat-label">Cups Served</span>
         </div>
+        <div className="cafe-stat">
+          <span className="cafe-stat-number">4.9</span>
+          <span className="cafe-stat-label">Star Rating</span>
+        </div>
+        <div className="cafe-stat">
+          <span className="cafe-stat-number">7+</span>
+          <span className="cafe-stat-label">Years Brewing</span>
+        </div>
+        <div className="cafe-stat">
+          <span className="cafe-stat-number">100%</span>
+          <span className="cafe-stat-label">Fresh Beans</span>
+        </div>
+      </section>
+
+      <section ref={aboutRef} className="cafe-about">
+        <div className="cafe-about-content">
+          <h2>Our Story</h2>
+          <p>
+            Brew & Bean Cafe was born from a passion for exceptional coffee and a
+            desire to create a warm, welcoming space for our community. We source
+            our beans directly from sustainable farms and roast them in small
+            batches to bring out the perfect flavor profile.
+          </p>
+          <p>
+            Every cup we serve is a labor of love — from the careful selection of
+            our ingredients to the skilled hands of our baristas. We believe coffee
+            is more than a drink; it is an experience.
+          </p>
+        </div>
+      </section>
+
+      <section ref={menuRef} className="cafe-menu">
+        <h2>Our Menu</h2>
         <div className="cafe-menu-grid">
-          {currentItems.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05 }}
-              className="cafe-menu-card"
-            >
-              <div className="cafe-menu-img">{item.icon}</div>
-              <div className="cafe-menu-info">
-                <h4>{item.name}</h4>
-                <p>{item.desc}</p>
-                <span className="cafe-menu-price">{item.price}</span>
+          {menuCategories.map((category) => (
+            <div key={category.name} className="cafe-menu-category">
+              <h3>{category.name}</h3>
+              {category.items.map((item) => (
+                <div key={item.name} className="cafe-menu-item">
+                  <span className="cafe-menu-item-name">{item.name}</span>
+                  <span className="cafe-menu-item-price">{item.price}</span>
+                </div>
+              ))}
+              <button
+                onClick={() => openModal('order')}
+                className="cafe-btn-order"
+              >
+                Order {category.name}
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section ref={specialsRef} className="cafe-specials">
+        <h2>Today's Specials</h2>
+        <div className="cafe-specials-grid">
+          {specials.map((special) => (
+            <div key={special.title} className="cafe-special-card">
+              <span className="cafe-special-tag">{special.tag}</span>
+              <h3>{special.title}</h3>
+              <p>{special.description}</p>
+              <button
+                onClick={() => openModal('order')}
+                className="cafe-btn-order"
+              >
+                Grab This Deal
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section ref={testimonialsRef} className="cafe-testimonials">
+        <h2>What Our Customers Say</h2>
+        <div className="cafe-testimonials-grid">
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.name} className="cafe-testimonial-card">
+              <div className="cafe-testimonial-stars">
+                {'★'.repeat(testimonial.rating)}
               </div>
-            </motion.div>
+              <p className="cafe-testimonial-text">"{testimonial.text}"</p>
+              <span className="cafe-testimonial-name">— {testimonial.name}</span>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Ambiance Gallery */}
-      <section id="ambiance" className="cafe-section" style={{ background: '#1c1917' }}>
-        <h2 className="cafe-section-title">Our Ambiance</h2>
-        <p className="cafe-section-subtitle">A space designed for comfort and connection</p>
-        <div className="cafe-gallery-grid">
-          {cafeData.gallery.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.08 }}
-              className="cafe-gallery-item"
-            >
-              <span className="cafe-gallery-icon">{item.icon}</span>
-              <span className="cafe-gallery-label">{item.label}</span>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Order */}
-      <section id="order" className="cafe-section cafe-order-section">
-        <h2 className="cafe-section-title">How to Order</h2>
-        <p className="cafe-section-subtitle">Three easy ways to enjoy your favorites</p>
-        <div className="cafe-order-grid">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="cafe-order-card"
-          >
-            <div className="cafe-order-icon"><FiPhone /></div>
-            <h3>Call Us</h3>
-            <p>Give us a ring and place your order over the phone. Quick and easy!</p>
-            <a href={`tel:${cafeData.phone}`} className="cafe-btn cafe-btn-secondary cafe-btn-full">
-              <FiPhone /> Call Now
-            </a>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="cafe-order-card"
-          >
-            <div className="cafe-order-icon"><FiMapPin /></div>
-            <h3>Walk In</h3>
-            <p>Visit us and enjoy the ambiance while we brew your perfect cup.</p>
-            <a href={`https://maps.google.com/?q=${cafeData.address}`} target="_blank" rel="noopener noreferrer" className="cafe-btn cafe-btn-secondary cafe-btn-full">
-              <FiMapPin /> Get Directions
-            </a>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="cafe-order-card"
-          >
-            <div className="cafe-order-icon"><FiSend /></div>
-            <h3>WhatsApp</h3>
-            <p>Send us your order on WhatsApp and we'll have it ready for you!</p>
-            <button className="cafe-btn cafe-btn-primary cafe-btn-full" onClick={() => openDemo('WhatsApp Order')}>
-              Order Now <FiArrowRight />
-            </button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section id="contact" className="cafe-section cafe-contact">
-        <h2 className="cafe-section-title">Visit Us</h2>
-        <p className="cafe-section-subtitle">We'd love to see you there</p>
+      <section ref={contactRef} className="cafe-contact">
+        <h2>Visit Us</h2>
         <div className="cafe-contact-grid">
           <div className="cafe-contact-info">
-            <div className="cafe-info-item">
-              <FiMapPin /> <span>{cafeData.address}</span>
+            <div className="cafe-contact-item">
+              <strong>Address</strong>
+              <p>123 Coffee Lane, Bean City, BC 45678</p>
             </div>
-            <div className="cafe-info-item">
-              <FiPhone /> <span>{cafeData.phone}</span>
+            <div className="cafe-contact-item">
+              <strong>Hours</strong>
+              <p>Mon-Fri: 6AM - 8PM</p>
+              <p>Sat-Sun: 7AM - 9PM</p>
             </div>
-            <div className="cafe-info-item">
-              <FiMail /> <span>{cafeData.email}</span>
+            <div className="cafe-contact-item">
+              <strong>Phone</strong>
+              <p>(555) 123-BREW</p>
             </div>
-            <div className="cafe-info-item">
-              <FiClock /> <span>{cafeData.timing}</span>
+            <div className="cafe-contact-item">
+              <strong>Email</strong>
+              <p>hello@brewandbean.com</p>
             </div>
           </div>
-          <form className="cafe-contact-form" onSubmit={e => { e.preventDefault(); openDemo('Contact Form'); }}>
-            <input className="cafe-form-input" type="text" placeholder="Your Name" required />
-            <input className="cafe-form-input" type="email" placeholder="Your Email" required />
-            <textarea className="cafe-form-input cafe-form-textarea" placeholder="Your Message" rows={4} required />
-            <button type="submit" className="cafe-btn cafe-btn-primary cafe-btn-full">
-              Send Message <FiArrowRight />
+          <div className="cafe-contact-form">
+            <input type="text" placeholder="Your Name" className="cafe-input" />
+            <input type="email" placeholder="Your Email" className="cafe-input" />
+            <textarea
+              placeholder="Your Message"
+              className="cafe-textarea"
+              rows="4"
+            ></textarea>
+            <button onClick={() => openModal('contact')} className="cafe-btn-primary">
+              Send Message
             </button>
-          </form>
+          </div>
         </div>
       </section>
 
-      <TemplateFooter name={cafeData.name} onSettingsClick={() => setShowSettings(true)} />
+      <TemplateFooter />
+      <Settings />
       <DemoModal
-        isOpen={demoModal.open}
-        onClose={() => setDemoModal({ open: false, type: '', item: '' })}
-        type={demoModal.type}
-        itemName={demoModal.item}
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        type={modalType}
+        templateName="Brew & Bean Cafe"
       />
     </div>
   );

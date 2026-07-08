@@ -1,287 +1,315 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FaInstagram, FaEnvelope, FaHotel, FaConciergeBell, FaSwimmingPool, FaDumbbell, FaUtensils, FaWifi, FaParking, FaSpa, FaStar, FaTimes, FaMapMarkerAlt, FaPhone, FaArrowRight, FaBed, FaBath, FaUsers, FaExpandArrowsAlt } from 'react-icons/fa';
+import React, { useState, useRef } from 'react';
 import DemoModal from '../shared/DemoModal';
 import Settings from '../shared/Settings';
 import TemplateFooter from '../shared/TemplateFooter';
 import './HotelTemplate.css';
 
-const Hotel = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [showSettings, setShowSettings] = useState(false);
+const HotelTemplate = () => {
+  const [modalType, setModalType] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  if (showSettings) {
-    return <Settings onBack={() => setShowSettings(false)} />;
-  }
+  const heroRef = useRef(null);
+  const statsRef = useRef(null);
+  const aboutRef = useRef(null);
+  const roomsRef = useRef(null);
+  const amenitiesRef = useRef(null);
+  const galleryRef = useRef(null);
+  const testimonialsRef = useRef(null);
+  const contactRef = useRef(null);
+
+  const scrollTo = (ref) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+    setMobileMenuOpen(false);
+  };
+
+  const handleBookRoom = () => {
+    setModalType('booking');
+  };
+
+  const navLinks = [
+    { label: 'Home', ref: heroRef },
+    { label: 'About', ref: aboutRef },
+    { label: 'Rooms', ref: roomsRef },
+    { label: 'Amenities', ref: amenitiesRef },
+    { label: 'Gallery', ref: galleryRef },
+    { label: 'Testimonials', ref: testimonialsRef },
+    { label: 'Contact', ref: contactRef },
+  ];
 
   const rooms = [
     {
-      name: 'Standard Room',
-      price: '₹2,999',
-      perNight: '/night',
-      desc: 'Comfortable room with city views and modern amenities.',
-      features: [
-        { icon: FaBed, text: 'Queen Bed' },
-        { icon: FaBath, text: 'Private Bath' },
-        { icon: FaWifi, text: 'Free WiFi' },
-        { icon: FaExpandArrowsAlt, text: '280 sq ft' },
-      ],
-      capacity: '2 Guests',
+      name: 'Deluxe Room',
+      price: 299,
+      image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600',
+      description: 'Spacious room with city views, king bed, and modern amenities.',
+      features: ['King Bed', 'City View', 'Free WiFi', 'Room Service'],
     },
     {
-      name: 'Deluxe Suite',
-      price: '₹5,999',
-      perNight: '/night',
-      desc: 'Spacious suite with panoramic views and premium comforts.',
-      features: [
-        { icon: FaBed, text: 'King Bed' },
-        { icon: FaBath, text: 'Jacuzzi Bath' },
-        { icon: FaWifi, text: 'Free WiFi' },
-        { icon: FaExpandArrowsAlt, text: '450 sq ft' },
-      ],
-      capacity: '2 Guests',
-      popular: true,
+      name: 'Royal Suite',
+      price: 599,
+      image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600',
+      description: 'Luxurious suite with separate living area and premium features.',
+      features: ['Living Area', 'Ocean View', 'Jacuzzi', 'Butler Service'],
     },
     {
-      name: 'Royal Penthouse',
-      price: '₹12,999',
-      perNight: '/night',
-      desc: 'Ultimate luxury with private terrace and butler service.',
-      features: [
-        { icon: FaBed, text: 'King Bed' },
-        { icon: FaBath, text: 'Steam & Sauna' },
-        { icon: FaWifi, text: 'Free WiFi' },
-        { icon: FaExpandArrowsAlt, text: '800 sq ft' },
-      ],
-      capacity: '4 Guests',
+      name: 'Presidential Suite',
+      price: 1299,
+      image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600',
+      description: 'Ultimate luxury with panoramic views and exclusive privileges.',
+      features: ['Panoramic View', 'Private Pool', 'Private Chef', 'Helipad Access'],
     },
   ];
 
   const amenities = [
-    { icon: FaSwimmingPool, name: 'Infinity Pool', desc: 'Temperature-controlled rooftop pool with stunning views' },
-    { icon: FaDumbbell, name: 'Fitness Center', desc: 'State-of-the-art equipment and personal trainers' },
-    { icon: FaUtensils, name: 'Fine Dining', desc: 'Multi-cuisine restaurant with private dining options' },
-    { icon: FaSpa, name: 'Luxury Spa', desc: 'Full-service spa with Ayurvedic and modern treatments' },
-    { icon: FaWifi, name: 'High-Speed WiFi', desc: 'Complimentary high-speed internet throughout the hotel' },
-    { icon: FaParking, name: 'Valet Parking', desc: 'Complimentary valet and secure underground parking' },
-    { icon: FaConciergeBell, name: '24/7 Concierge', desc: 'Personal concierge service for all your needs' },
-    { icon: FaHotel, name: 'Airport Transfer', desc: 'Luxury car transfers to and from the airport' },
+    { icon: '🏊', name: 'Infinity Pool', description: 'Rooftop pool with stunning skyline views' },
+    { icon: '💆', name: 'Luxury Spa', description: 'Full-service spa with signature treatments' },
+    { icon: '💪', name: 'Fitness Center', description: 'State-of-the-art equipment and trainers' },
+    { icon: '🍽️', name: 'Fine Dining', description: 'Award-winning restaurant with world cuisine' },
+    { icon: '🍸', name: 'Sky Bar', description: 'Craft cocktails with panoramic city views' },
+    { icon: '🧖', name: 'Sauna & Steam', description: 'Traditional Finnish sauna and steam rooms' },
+    { icon: '🎾', name: 'Tennis Court', description: 'Professional courts with night lighting' },
+    { icon: '🅿️', name: 'Valet Parking', description: 'Complimentary valet service for guests' },
   ];
 
-  const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
+  const gallery = [
+    { image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600', title: 'Hotel Exterior' },
+    { image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600', title: 'Grand Lobby' },
+    { image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600', title: 'Pool Area' },
+    { image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600', title: 'Restaurant' },
+  ];
+
+  const testimonials = [
+    { name: 'Sarah Johnson', role: 'Business Traveler', rating: 5, text: 'Absolutely stunning hotel! The service was impeccable and the room exceeded all expectations.' },
+    { name: 'Michael Chen', role: 'Wedding Guest', rating: 5, text: 'The Royal Suite was breathtaking. Our wedding reception was held here and everything was perfect.' },
+    { name: 'Emma Williams', role: 'Vacationer', rating: 5, text: 'Best hotel experience ever. The spa treatments were divine and the rooftop pool is a dream.' },
+  ];
 
   return (
-    <div className="hotel-app">
-      <DemoModal isOpen={showModal} onClose={() => setShowModal(false)} />
+    <div className="hotel-template">
+      <Settings />
 
       <nav className="hotel-nav">
-        <div className="hotel-nav-inner">
-          <div className="hotel-logo">
-            <FaHotel className="hotel-logo-icon" />
-            <span>Your Hotel</span>
-          </div>
-          <div className="hotel-nav-links">
-            <a href="#rooms">Rooms</a>
-            <a href="#amenities">Amenities</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#booking">Book</a>
-            <a href="#contact">Contact</a>
-          </div>
-          <button className="hotel-nav-settings" onClick={() => setShowSettings(true)}>Settings</button>
+        <div className="hotel-nav-container">
+          <span className="hotel-logo" onClick={() => scrollTo(heroRef)}>
+            Royal Heritage Hotel
+          </span>
+          <button className="hotel-mobile-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? '✕' : '☰'}
+          </button>
+          <ul className={`hotel-nav-links ${mobileMenuOpen ? 'open' : ''}`}>
+            {navLinks.map((link, i) => (
+              <li key={i}>
+                <span onClick={() => scrollTo(link.ref)}>{link.label}</span>
+              </li>
+            ))}
+            <li>
+              <span className="hotel-nav-btn" onClick={handleBookRoom}>
+                Book Now
+              </span>
+            </li>
+          </ul>
         </div>
       </nav>
 
-      <section className="hotel-hero">
-        <div className="hotel-hero-overlay"></div>
-        <motion.div className="hotel-hero-content" initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-          <span className="hotel-hero-tag">Welcome to Luxury</span>
-          <h1>Where Elegance <br />Meets <span className="hotel-accent">Excellence</span></h1>
-          <p>An extraordinary escape crafted for those who appreciate the finer things in life.</p>
-          <div className="hotel-hero-btns">
-            <button className="hotel-btn-primary" onClick={() => setShowModal(true)}>Book Your Stay</button>
-            <a href="#rooms" className="hotel-btn-secondary">View Rooms <FaArrowRight /></a>
+      <section ref={heroRef} className="hotel-hero">
+        <div className="hotel-hero-overlay" />
+        <div className="hotel-hero-content">
+          <p className="hotel-hero-subtitle">Welcome to</p>
+          <h1 className="hotel-hero-title">Royal Heritage Hotel</h1>
+          <p className="hotel-hero-tagline">Experience Timeless Luxury in the Heart of the City</p>
+          <button className="hotel-btn hotel-btn-primary" onClick={handleBookRoom}>
+            Book Your Stay
+          </button>
+        </div>
+      </section>
+
+      <section ref={statsRef} className="hotel-stats">
+        <div className="hotel-stats-container">
+          <div className="hotel-stat-item">
+            <span className="hotel-stat-number">25+</span>
+            <span className="hotel-stat-label">Years of Excellence</span>
           </div>
-        </motion.div>
-        <div className="hotel-hero-shape"></div>
+          <div className="hotel-stat-item">
+            <span className="hotel-stat-number">150+</span>
+            <span className="hotel-stat-label">Luxury Rooms</span>
+          </div>
+          <div className="hotel-stat-item">
+            <span className="hotel-stat-number">98%</span>
+            <span className="hotel-stat-label">Guest Satisfaction</span>
+          </div>
+          <div className="hotel-stat-item">
+            <span className="hotel-stat-number">50+</span>
+            <span className="hotel-stat-label">Awards Won</span>
+          </div>
+        </div>
       </section>
 
-      <section id="rooms" className="hotel-rooms">
-        <motion.div className="hotel-section-header" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} transition={{ duration: 0.6 }}>
-          <span className="hotel-section-tag">Accommodations</span>
-          <h2>Luxurious Rooms & Suites</h2>
-          <p>Each room is a sanctuary of comfort, designed to exceed your every expectation.</p>
-        </motion.div>
-        <div className="hotel-rooms-grid">
-          {rooms.map((r, i) => (
-            <motion.div key={i} className={`hotel-room-card ${r.popular ? 'hotel-room-popular' : ''}`} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} transition={{ duration: 0.5, delay: i * 0.15 }}>
-              {r.popular && <div className="hotel-room-badge">Most Popular</div>}
-              <div className="hotel-room-visual">
-                <FaBed className="hotel-room-visual-icon" />
-              </div>
-              <div className="hotel-room-body">
-                <div className="hotel-room-header">
-                  <h3>{r.name}</h3>
-                  <span className="hotel-room-capacity"><FaUsers /> {r.capacity}</span>
+      <section ref={aboutRef} className="hotel-about">
+        <div className="hotel-about-container">
+          <div className="hotel-about-content">
+            <h2 className="hotel-section-subtitle">Our Story</h2>
+            <h3 className="hotel-section-title">A Legacy of Royal Hospitality</h3>
+            <p>
+              Founded in 1998, Royal Heritage Hotel has been setting the standard for luxury hospitality
+              for over two decades. Our commitment to excellence has earned us recognition as one of
+              the world's finest hotels.
+            </p>
+            <p>
+              Every detail, from our hand-selected art collections to our award-winning cuisine,
+              reflects our dedication to providing an unparalleled guest experience that honors
+              both tradition and modern elegance.
+            </p>
+            <button className="hotel-btn hotel-btn-outline" onClick={handleBookRoom}>
+              Experience Our Legacy
+            </button>
+          </div>
+          <div className="hotel-about-image">
+            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600" alt="Hotel Lobby" />
+          </div>
+        </div>
+      </section>
+
+      <section ref={roomsRef} className="hotel-rooms">
+        <div className="hotel-rooms-container">
+          <h2 className="hotel-section-subtitle">Accommodations</h2>
+          <h3 className="hotel-section-title">Our Luxurious Rooms & Suites</h3>
+          <div className="hotel-rooms-grid">
+            {rooms.map((room, i) => (
+              <div key={i} className="hotel-room-card">
+                <div className="hotel-room-image">
+                  <img src={room.image} alt={room.name} />
+                  <span className="hotel-room-price">${room.price}/night</span>
                 </div>
-                <p className="hotel-room-desc">{r.desc}</p>
-                <div className="hotel-room-features">
-                  {r.features.map((f, j) => (
-                    <span key={j} className="hotel-room-feature">
-                      <f.icon /> {f.text}
-                    </span>
-                  ))}
-                </div>
-                <div className="hotel-room-footer">
-                  <div className="hotel-room-price">
-                    {r.price}<span>{r.perNight}</span>
-                  </div>
-                  <button className="hotel-btn-primary hotel-btn-sm" onClick={() => setShowModal(true)}>Book Now</button>
+                <div className="hotel-room-info">
+                  <h4>{room.name}</h4>
+                  <p>{room.description}</p>
+                  <ul className="hotel-room-features">
+                    {room.features.map((feat, j) => (
+                      <li key={j}>{feat}</li>
+                    ))}
+                  </ul>
+                  <button className="hotel-btn hotel-btn-primary" onClick={handleBookRoom}>
+                    Book Now
+                  </button>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="amenities" className="hotel-amenities">
-        <div className="hotel-section-header">
-          <span className="hotel-section-tag">World-Class</span>
-          <h2>Premium Amenities</h2>
-          <p>Everything you need for an unforgettable stay, all under one roof.</p>
-        </div>
-        <div className="hotel-amenities-grid">
-          {amenities.map((a, i) => (
-            <motion.div key={i} className="hotel-amenity-card" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} transition={{ duration: 0.4, delay: i * 0.08 }}>
-              <div className="hotel-amenity-icon"><a.icon /></div>
-              <h4>{a.name}</h4>
-              <p>{a.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      <section id="gallery" className="hotel-gallery">
-        <div className="hotel-section-header">
-          <span className="hotel-section-tag">Visual Journey</span>
-          <h2>Hotel Gallery</h2>
-          <p>A glimpse into the world of luxury that awaits you.</p>
-        </div>
-        <div className="hotel-gallery-grid">
-          {['Lobby & Reception', 'Deluxe Suite', 'Infinity Pool', 'Fine Dining Restaurant', 'Luxury Spa', 'Royal Penthouse'].map((item, i) => (
-            <motion.div key={i} className="hotel-gallery-item" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} transition={{ duration: 0.4, delay: i * 0.1 }}>
-              <div className="hotel-gallery-placeholder">
-                <FaHotel />
-                <span>{item}</span>
+      <section ref={amenitiesRef} className="hotel-amenities">
+        <div className="hotel-amenities-container">
+          <h2 className="hotel-section-subtitle">World-Class Facilities</h2>
+          <h3 className="hotel-section-title">Hotel Amenities</h3>
+          <div className="hotel-amenities-grid">
+            {amenities.map((amenity, i) => (
+              <div key={i} className="hotel-amenity-card">
+                <span className="hotel-amenity-icon">{amenity.icon}</span>
+                <h4>{amenity.name}</h4>
+                <p>{amenity.description}</p>
               </div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="booking" className="hotel-booking">
-        <div className="hotel-booking-content">
-          <motion.div className="hotel-booking-text" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} transition={{ duration: 0.6 }}>
-            <span className="hotel-section-tag">Reserve Now</span>
-            <h2>Book Your Perfect Stay</h2>
-            <p>Secure your reservation today and experience a world of unparalleled luxury and comfort.</p>
-            <div className="hotel-booking-highlights">
-              <div className="hotel-booking-highlight">
-                <FaStar className="hotel-highlight-icon" />
+      <section ref={galleryRef} className="hotel-gallery">
+        <div className="hotel-gallery-container">
+          <h2 className="hotel-section-subtitle">Visual Tour</h2>
+          <h3 className="hotel-section-title">Photo Gallery</h3>
+          <div className="hotel-gallery-grid">
+            {gallery.map((item, i) => (
+              <div key={i} className="hotel-gallery-card">
+                <img src={item.image} alt={item.title} />
+                <div className="hotel-gallery-overlay">
+                  <span>{item.title}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section ref={testimonialsRef} className="hotel-testimonials">
+        <div className="hotel-testimonials-container">
+          <h2 className="hotel-section-subtitle">Guest Experiences</h2>
+          <h3 className="hotel-section-title">What Our Guests Say</h3>
+          <div className="hotel-testimonials-grid">
+            {testimonials.map((testimonial, i) => (
+              <div key={i} className="hotel-testimonial-card">
+                <div className="hotel-testimonial-stars">
+                  {'★'.repeat(testimonial.rating)}
+                </div>
+                <p>"{testimonial.text}"</p>
+                <div className="hotel-testimonial-author">
+                  <strong>{testimonial.name}</strong>
+                  <span>{testimonial.role}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section ref={contactRef} className="hotel-contact">
+        <div className="hotel-contact-container">
+          <h2 className="hotel-section-subtitle">Get in Touch</h2>
+          <h3 className="hotel-section-title">Contact Us</h3>
+          <div className="hotel-contact-grid">
+            <div className="hotel-contact-info">
+              <div className="hotel-contact-item">
+                <span className="hotel-contact-icon">📍</span>
                 <div>
-                  <h4>Best Rate Guarantee</h4>
-                  <p>We match any lower price found online.</p>
+                  <strong>Address</strong>
+                  <p>123 Royal Avenue, Luxury District, New York, NY 10001</p>
                 </div>
               </div>
-              <div className="hotel-booking-highlight">
-                <FaStar className="hotel-highlight-icon" />
+              <div className="hotel-contact-item">
+                <span className="hotel-contact-icon">📞</span>
                 <div>
-                  <h4>Free Cancellation</h4>
-                  <p>Cancel up to 24 hours before check-in.</p>
+                  <strong>Phone</strong>
+                  <p>+1 (555) 123-4567</p>
                 </div>
               </div>
-              <div className="hotel-booking-highlight">
-                <FaStar className="hotel-highlight-icon" />
+              <div className="hotel-contact-item">
+                <span className="hotel-contact-icon">✉️</span>
                 <div>
-                  <h4>Complimentary Breakfast</h4>
-                  <p>Enjoy daily breakfast on the house.</p>
+                  <strong>Email</strong>
+                  <p>reservations@royalheritagehotel.com</p>
+                </div>
+              </div>
+              <div className="hotel-contact-item">
+                <span className="hotel-contact-icon">🕐</span>
+                <div>
+                  <strong>Hours</strong>
+                  <p>24/7 Front Desk Service</p>
                 </div>
               </div>
             </div>
-          </motion.div>
-          <motion.div className="hotel-booking-form-wrapper" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} transition={{ duration: 0.6, delay: 0.2 }}>
-            <form className="hotel-booking-form" onSubmit={(e) => { e.preventDefault(); setShowModal(true); }}>
-              <div className="hotel-form-group">
-                <label>Full Name</label>
-                <input type="text" placeholder="Enter your full name" />
-              </div>
-              <div className="hotel-form-group">
-                <label>Email Address</label>
-                <input type="email" placeholder="Enter your email" />
-              </div>
-              <div className="hotel-form-group">
-                <label>Phone Number</label>
-                <input type="tel" placeholder="Enter your phone" />
-              </div>
-              <div className="hotel-form-group">
-                <label>Room Type</label>
-                <select defaultValue="">
-                  <option value="" disabled>Select room type</option>
-                  {rooms.map((r, i) => <option key={i}>{r.name}</option>)}
-                </select>
-              </div>
-              <div className="hotel-form-row">
-                <div className="hotel-form-group">
-                  <label>Check-in</label>
-                  <input type="date" />
-                </div>
-                <div className="hotel-form-group">
-                  <label>Check-out</label>
-                  <input type="date" />
-                </div>
-              </div>
-              <div className="hotel-form-group">
-                <label>Special Requests</label>
-                <textarea placeholder="Any special requests or notes..." rows={3}></textarea>
-              </div>
-              <button type="submit" className="hotel-btn-primary">Reserve Now</button>
+            <form className="hotel-contact-form" onSubmit={(e) => { e.preventDefault(); handleBookRoom(); }}>
+              <input type="text" placeholder="Your Name" required />
+              <input type="email" placeholder="Your Email" required />
+              <input type="tel" placeholder="Your Phone" required />
+              <textarea placeholder="Your Message" rows={5} required />
+              <button type="submit" className="hotel-btn hotel-btn-primary">
+                Send Message
+              </button>
             </form>
-          </motion.div>
-        </div>
-      </section>
-
-      <section id="contact" className="hotel-contact">
-        <div className="hotel-section-header">
-          <span className="hotel-section-tag">Reach Us</span>
-          <h2>Contact Information</h2>
-        </div>
-        <div className="hotel-contact-grid">
-          <div className="hotel-contact-card">
-            <FaMapMarkerAlt className="hotel-contact-icon" />
-            <h4>Location</h4>
-            <p>456 Luxury Avenue, Royal District, Jaipur, Rajasthan 302001</p>
-          </div>
-          <div className="hotel-contact-card">
-            <FaPhone className="hotel-contact-icon" />
-            <h4>Phone</h4>
-            <p>+91 98765 43210</p>
-          </div>
-          <div className="hotel-contact-card">
-            <FaEnvelope className="hotel-contact-icon" />
-            <h4>Email</h4>
-            <p>fitfocushub2@gmail.com</p>
           </div>
         </div>
       </section>
 
-      <TemplateFooter
-        websiteName="Your Hotel"
-        email="fitfocushub2@gmail.com"
-        instagram1="@mohammad_s4kib"
-        instagram2="@abhaytiwari6434"
-        onSettingsClick={() => setShowSettings(true)}
-      />
+      <TemplateFooter />
+
+      {modalType && (
+        <DemoModal
+          type={modalType}
+          onClose={() => setModalType(null)}
+        />
+      )}
     </div>
   );
 };
 
-export default Hotel;
+export default HotelTemplate;
