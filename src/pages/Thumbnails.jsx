@@ -5,6 +5,7 @@ import PageHeader from '../components/PageHeader';
 import ComingSoon from '../components/ComingSoon';
 import Modal from '../components/Modal';
 import { SEO } from '../components/SEO';
+import ScreenProtection from '../components/ScreenProtection';
 import thumbnails from '../data/thumbnails.json';
 import './Thumbnails.css';
 
@@ -20,6 +21,7 @@ export default function Thumbnails() {
 
   return (
     <div className="thumbnails-page page-transition">
+      <ScreenProtection />
       <SEO
         title="Thumbnails"
         description="Professional thumbnail design for YouTube, gaming, AI, business, and educational content. Eye-catching designs that boost click-through rates."

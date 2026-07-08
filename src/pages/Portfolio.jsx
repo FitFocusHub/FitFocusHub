@@ -9,6 +9,7 @@ import AnimatedSection from '../components/AnimatedSection';
 import PageHeader from '../components/PageHeader';
 import ComingSoon from '../components/ComingSoon';
 import { SEO } from '../components/SEO';
+import ScreenProtection from '../components/ScreenProtection';
 import './Portfolio.css';
 
 const categories = ['All', ...new Set(projects.map(p => p.category))];
@@ -65,6 +66,7 @@ export default function Portfolio() {
 
   return (
     <div className="portfolio-page page-transition">
+      <ScreenProtection />
       <SEO
         title="Portfolio"
         description="View our portfolio of website development, graphic design, video editing, and digital marketing projects. See how we help businesses grow online."

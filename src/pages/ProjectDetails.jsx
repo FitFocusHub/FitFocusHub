@@ -8,6 +8,7 @@ import config from '../data/config.json';
 import AnimatedSection from '../components/AnimatedSection';
 import PageHeader from '../components/PageHeader';
 import ComingSoon from '../components/ComingSoon';
+import ScreenProtection from '../components/ScreenProtection';
 import './ProjectDetails.css';
 
 export default function ProjectDetails() {
@@ -45,6 +46,7 @@ export default function ProjectDetails() {
 
   return (
     <div className="project-details-page page-transition">
+      <ScreenProtection />
       <PageHeader
         title={project.name}
         subtitle={project.description}

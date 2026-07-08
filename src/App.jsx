@@ -5,7 +5,6 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import WhatsAppButton from './components/WhatsAppButton';
 import Loading from './components/Loading';
-import ScreenProtection from './components/ScreenProtection';
 
 const Home = lazy(() => import('./pages/Home'));
 const Services = lazy(() => import('./pages/Services'));
@@ -60,7 +59,6 @@ export default function App() {
 
   return (
     <div className={`app ${isDark ? 'dark' : 'light'}`}>
-      <ScreenProtection />
       <ScrollToTop />
       {!isDemoRoute && <Navbar isDark={isDark} toggleDark={toggleDark} />}
       <main>

@@ -6,6 +6,7 @@ import PageHeader from '../components/PageHeader';
 import ComingSoon from '../components/ComingSoon';
 import Modal from '../components/Modal';
 import { SEO } from '../components/SEO';
+import ScreenProtection from '../components/ScreenProtection';
 import videos from '../data/videos.json';
 import './VideoEditing.css';
 
@@ -14,6 +15,7 @@ export default function VideoEditing() {
 
   return (
     <div className="video-editing-page page-transition">
+      <ScreenProtection />
       <SEO
         title="Video Editing"
         description="Professional video editing services: color grading, motion graphics, sound design, masking, 4K export, and social media formats."

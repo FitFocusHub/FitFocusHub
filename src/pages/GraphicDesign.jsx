@@ -5,6 +5,7 @@ import PageHeader from '../components/PageHeader';
 import ComingSoon from '../components/ComingSoon';
 import Modal from '../components/Modal';
 import { SEO } from '../components/SEO';
+import ScreenProtection from '../components/ScreenProtection';
 import posters from '../data/posters.json';
 import logos from '../data/logos.json';
 import businessCards from '../data/businessCards.json';
@@ -27,6 +28,7 @@ export default function GraphicDesign() {
 
   return (
     <div className="graphic-design-page page-transition">
+      <ScreenProtection />
       <SEO
         title="Graphic Design"
         description="Professional graphic design services: poster design, logo design, business card design, Instagram posts, flyers, and digital business cards."
