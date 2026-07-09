@@ -1,23 +1,79 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e"/>
-      <stop offset="100%" style="stop-color:#16213e"/>
+      <stop offset="0%" style="stop-color:#0a0014"/>
+      <stop offset="100%" style="stop-color:#05000a"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#d946ef"/>
-      <stop offset="100%" style="stop-color:#c026d3"/>
+    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
     </linearGradient>
   </defs>
   <rect width="800" height="600" fill="url(#bg)"/>
-  <circle cx="650" cy="100" r="200" fill="#d946ef" opacity="0.1"/>
-  <circle cx="150" cy="500" r="150" fill="#d946ef" opacity="0.08"/>
-  <rect x="100" y="180" width="600" height="4" rx="2" fill="url(#accent)"/>
-  <text x="400" y="160" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="48" font-weight="bold">ECOMMERCE</text>
-  <text x="400" y="250" text-anchor="middle" fill="#d946ef" font-family="Arial, sans-serif" font-size="24">ONLINE STORE</text>
-  <rect x="250" y="320" width="300" height="80" rx="10" fill="url(#accent)"/>
-  <text x="400" y="370" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="20">SHOP NOW</text>
-  <circle cx="400" cy="480" r="40" fill="none" stroke="#d946ef" stroke-width="3"/>
-  <path d="M385 470 L415 470 L415 490 L385 490 Z M390 475 L390 485 M410 475 L410 485" stroke="#d946ef" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <text x="400" y="560" text-anchor="middle" fill="#6b7280" font-family="Arial, sans-serif" font-size="14">Premium Shopping Experience</text>
+  <rect x="20" y="20" width="760" height="560" rx="12" fill="#111" stroke="#333" stroke-width="2"/>
+  <rect x="20" y="20" width="760" height="40" rx="12" fill="#1a1a1a"/>
+  <circle cx="45" cy="40" r="6" fill="#ef4444"/>
+  <circle cx="65" cy="40" r="6" fill="#f59e0b"/>
+  <circle cx="85" cy="40" r="6" fill="#10b981"/>
+  <rect x="200" y="32" width="200" height="16" rx="4" fill="#333"/>
+  <!-- Navigation -->
+  <rect x="20" y="60" width="760" height="50" fill="#0a0014" stroke="rgba(139,92,246,0.2)" stroke-width="1"/>
+  <text x="60" y="90" fill="#8b5cf6" font-family="Georgia" font-size="18" font-weight="bold">🛍️ TrendMart</text>
+  <text x="210" y="90" fill="#c9a0c9" font-family="Arial" font-size="11">Home</text>
+  <text x="250" y="90" fill="#c9a0c9" font-family="Arial" font-size="11">Shop</text>
+  <text x="285" y="90" fill="#c9a0c9" font-family="Arial" font-size="11">Categories</text>
+  <text x="360" y="90" fill="#c9a0c9" font-family="Arial" font-size="11">Deals</text>
+  <text x="400" y="90" fill="#c9a0c9" font-family="Arial" font-size="11">Account</text>
+  <rect x="550" y="75" width="80" height="28" rx="6" fill="transparent" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="590" y="93" text-anchor="middle" fill="#8b5cf6" font-family="Arial" font-size="10">🔍 Search</text>
+  <rect x="650" y="75" width="110" height="28" rx="6" fill="url(#purple)"/>
+  <text x="705" y="93" text-anchor="middle" fill="white" font-family="Arial" font-size="10" font-weight="bold">🛒 Cart (3)</text>
+  <!-- Hero -->
+  <rect x="220" y="130" width="350" height="16" rx="4" fill="rgba(139,92,246,0.2)"/>
+  <text x="230" y="143" fill="#8b5cf6" font-family="Arial" font-size="10">🔥 Up to 50% Off</text>
+  <rect x="220" y="155" width="420" height="40" rx="4" fill="#0a0014"/>
+  <text x="230" y="182" fill="white" font-family="Georgia" font-size="28" font-weight="bold">Shop the <tspan fill="#8b5cf6">Latest</tspan> Trends</text>
+  <rect x="220" y="210" width="350" height="10" rx="3" fill="#150025"/>
+  <rect x="220" y="228" width="280" height="10" rx="3" fill="#150025"/>
+  <rect x="220" y="250" width="110" height="32" rx="6" fill="url(#purple)"/>
+  <text x="275" y="270" text-anchor="middle" fill="white" font-family="Arial" font-size="11" font-weight="bold">Shop Now</text>
+  <rect x="345" y="250" width="110" height="32" rx="6" fill="transparent" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="400" y="270" text-anchor="middle" fill="#8b5cf6" font-family="Arial" font-size="11">View Deals</text>
+  <!-- Ecommerce Image -->
+  <rect x="630" y="130" width="140" height="160" rx="16" fill="rgba(139,92,246,0.12)" stroke="rgba(139,92,246,0.3)" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="700" y="215" text-anchor="middle" fill="rgba(139,92,246,0.5)" font-size="50">🛍️</text>
+  <!-- Products -->
+  <rect x="220" y="300" width="160" height="160" rx="12" fill="#0a0014" stroke="rgba(139,92,246,0.2)" stroke-width="1"/>
+  <rect x="240" y="315" width="120" height="50" rx="8" fill="rgba(139,92,246,0.15)"/>
+  <text x="300" y="348" text-anchor="middle" fill="rgba(139,92,246,0.4)" font-size="28">👕</text>
+  <rect x="240" y="375" width="80" height="8" rx="3" fill="#150025"/>
+  <rect x="240" y="388" width="60" height="8" rx="3" fill="#10001a"/>
+  <text x="300" y="420" text-anchor="middle" fill="#8b5cf6" font-family="Arial" font-size="14" font-weight="bold">₹999</text>
+  <text x="280" y="438" fill="#c9a0c9" font-family="Arial" font-size="9"><tspan text-decoration="line-through">₹1,999</tspan> 50% Off</text>
+  <text x="300" y="455" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="8">Premium T-Shirt</text>
+  <rect x="400" y="300" width="160" height="160" rx="12" fill="#0a0014" stroke="#8b5cf6" stroke-width="2"/>
+  <rect x="445" y="290" width="70" height="16" rx="8" fill="#8b5cf6"/>
+  <text x="480" y="302" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">Sale</text>
+  <rect x="420" y="315" width="120" height="50" rx="8" fill="rgba(139,92,246,0.15)"/>
+  <text x="480" y="348" text-anchor="middle" fill="rgba(139,92,246,0.4)" font-size="28">👟</text>
+  <rect x="420" y="375" width="80" height="8" rx="3" fill="#150025"/>
+  <rect x="420" y="388" width="60" height="8" rx="3" fill="#10001a"/>
+  <text x="480" y="420" text-anchor="middle" fill="#8b5cf6" font-family="Arial" font-size="14" font-weight="bold">₹2,499</text>
+  <text x="460" y="438" fill="#c9a0c9" font-family="Arial" font-size="9"><tspan text-decoration="line-through">₹4,999</tspan> 50% Off</text>
+  <text x="480" y="455" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="8">Running Shoes</text>
+  <rect x="580" y="300" width="160" height="160" rx="12" fill="#0a0014" stroke="rgba(139,92,246,0.2)" stroke-width="1"/>
+  <rect x="600" y="315" width="120" height="50" rx="8" fill="rgba(139,92,246,0.15)"/>
+  <text x="660" y="348" text-anchor="middle" fill="rgba(139,92,246,0.4)" font-size="28">⌚</text>
+  <rect x="600" y="375" width="80" height="8" rx="3" fill="#150025"/>
+  <rect x="600" y="388" width="60" height="8" rx="3" fill="#10001a"/>
+  <text x="660" y="420" text-anchor="middle" fill="#8b5cf6" font-family="Arial" font-size="14" font-weight="bold">₹3,999</text>
+  <text x="640" y="438" fill="#c9a0c9" font-family="Arial" font-size="9"><tspan text-decoration="line-through">₹7,999</tspan> 50% Off</text>
+  <text x="660" y="455" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="8">Smart Watch</text>
+  <!-- Features -->
+  <rect x="220" y="480" width="520" height="60" rx="8" fill="#0a0014" stroke="rgba(139,92,246,0.2)" stroke-width="1"/>
+  <text x="480" y="505" text-anchor="middle" fill="#8b5cf6" font-family="Georgia" font-size="12" font-weight="bold">🚚 Free Shipping • 🔄 Easy Returns • 🔒 Secure Payment</text>
+  <text x="480" y="525" text-anchor="middle" fill="#c9a0c9" font-family="Arial" font-size="10">COD Available • 7-Day Exchange</text>
+  <!-- Footer -->
+  <rect x="20" y="550" width="760" height="30" fill="#05000a"/>
+  <text x="400" y="570" text-anchor="middle" fill="#c9a0c9" font-family="Arial" font-size="9">© 2024 TrendMart. All Rights Reserved.</text>
 </svg>

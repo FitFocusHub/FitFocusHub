@@ -1,23 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e"/>
-      <stop offset="100%" style="stop-color:#16213e"/>
+      <stop offset="0%" style="stop-color:#141000"/>
+      <stop offset="100%" style="stop-color:#0a0800"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#d4a017"/>
-      <stop offset="100%" style="stop-color:#b8860b"/>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#eab308"/>
+      <stop offset="100%" style="stop-color:#ca8a04"/>
     </linearGradient>
   </defs>
   <rect width="800" height="600" fill="url(#bg)"/>
-  <circle cx="650" cy="100" r="200" fill="#d4a017" opacity="0.1"/>
-  <circle cx="150" cy="500" r="150" fill="#d4a017" opacity="0.08"/>
-  <rect x="100" y="180" width="600" height="4" rx="2" fill="url(#accent)"/>
-  <text x="400" y="160" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="48" font-weight="bold">HOTEL</text>
-  <text x="400" y="250" text-anchor="middle" fill="#d4a017" font-family="Arial, sans-serif" font-size="24">LUXURY STAY</text>
-  <rect x="250" y="320" width="300" height="80" rx="10" fill="url(#accent)"/>
-  <text x="400" y="370" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="20">BOOK ROOM</text>
-  <circle cx="400" cy="480" r="40" fill="none" stroke="#d4a017" stroke-width="3"/>
-  <path d="M380 475 L395 475 L395 465 L405 465 L405 475 L420 475 L420 485 L380 485 Z" stroke="#d4a017" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <text x="400" y="560" text-anchor="middle" fill="#6b7280" font-family="Arial, sans-serif" font-size="14">Premium Hospitality</text>
+  <rect x="20" y="20" width="760" height="560" rx="12" fill="#111" stroke="#333" stroke-width="2"/>
+  <rect x="20" y="20" width="760" height="40" rx="12" fill="#1a1a1a"/>
+  <circle cx="45" cy="40" r="6" fill="#ef4444"/>
+  <circle cx="65" cy="40" r="6" fill="#f59e0b"/>
+  <circle cx="85" cy="40" r="6" fill="#10b981"/>
+  <rect x="200" y="32" width="200" height="16" rx="4" fill="#333"/>
+  <!-- Navigation -->
+  <rect x="20" y="60" width="760" height="50" fill="#141000" stroke="rgba(234,179,8,0.2)" stroke-width="1"/>
+  <text x="60" y="90" fill="#eab308" font-family="Georgia" font-size="18" font-weight="bold">🏨 Royal Palace</text>
+  <text x="220" y="90" fill="#c9b86c" font-family="Arial" font-size="11">Home</text>
+  <text x="265" y="90" fill="#c9b86c" font-family="Arial" font-size="11">Rooms</text>
+  <text x="315" y="90" fill="#c9b86c" font-family="Arial" font-size="11">Dining</text>
+  <text x="365" y="90" fill="#c9b86c" font-family="Arial" font-size="11">Amenities</text>
+  <text x="430" y="90" fill="#c9b86c" font-family="Arial" font-size="11">Events</text>
+  <text x="480" y="90" fill="#c9b86c" font-family="Arial" font-size="11">Gallery</text>
+  <text x="530" y="90" fill="#c9b86c" font-family="Arial" font-size="11">Contact</text>
+  <rect x="650" y="75" width="110" height="28" rx="6" fill="url(#gold)"/>
+  <text x="705" y="93" text-anchor="middle" fill="white" font-family="Arial" font-size="10" font-weight="bold">Book Room</text>
+  <!-- Hero -->
+  <rect x="220" y="130" width="350" height="16" rx="4" fill="rgba(234,179,8,0.2)"/>
+  <text x="230" y="143" fill="#eab308" font-family="Arial" font-size="10">⭐ 5-Star Luxury Hotel</text>
+  <rect x="220" y="155" width="420" height="40" rx="4" fill="#141000"/>
+  <text x="230" y="182" fill="white" font-family="Georgia" font-size="28" font-weight="bold">Experience <tspan fill="#eab308">Luxury</tspan></text>
+  <text x="230" y="200" fill="white" font-family="Georgia" font-size="28" font-weight="bold">Like Never Before</text>
+  <rect x="220" y="210" width="350" height="10" rx="3" fill="#2a2000"/>
+  <rect x="220" y="228" width="280" height="10" rx="3" fill="#2a2000"/>
+  <rect x="220" y="250" width="110" height="32" rx="6" fill="url(#gold)"/>
+  <text x="275" y="270" text-anchor="middle" fill="white" font-family="Arial" font-size="11" font-weight="bold">Explore Rooms</text>
+  <rect x="345" y="250" width="110" height="32" rx="6" fill="transparent" stroke="#eab308" stroke-width="2"/>
+  <text x="400" y="270" text-anchor="middle" fill="#eab308" font-family="Arial" font-size="11">Virtual Tour</text>
+  <!-- Hotel Image -->
+  <rect x="630" y="130" width="140" height="160" rx="16" fill="rgba(234,179,8,0.12)" stroke="rgba(234,179,8,0.3)" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="700" y="215" text-anchor="middle" fill="rgba(234,179,8,0.5)" font-size="50">🏨</text>
+  <!-- Room Cards -->
+  <rect x="220" y="300" width="160" height="160" rx="12" fill="#141000" stroke="rgba(234,179,8,0.2)" stroke-width="1"/>
+  <rect x="240" y="315" width="120" height="50" rx="8" fill="rgba(234,179,8,0.15)"/>
+  <text x="300" y="348" text-anchor="middle" fill="rgba(234,179,8,0.4)" font-size="28">🛏️</text>
+  <rect x="240" y="375" width="80" height="8" rx="3" fill="#2a2000"/>
+  <rect x="240" y="388" width="60" height="8" rx="3" fill="#1e1500"/>
+  <text x="300" y="420" text-anchor="middle" fill="#eab308" font-family="Arial" font-size="14" font-weight="bold">₹5,000</text>
+  <text x="300" y="435" text-anchor="middle" fill="#c9b86c" font-family="Arial" font-size="9">Deluxe Room</text>
+  <text x="300" y="450" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="8">per night</text>
+  <rect x="400" y="300" width="160" height="160" rx="12" fill="#141000" stroke="#eab308" stroke-width="2"/>
+  <rect x="445" y="290" width="70" height="16" rx="8" fill="#eab308"/>
+  <text x="480" y="302" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">Popular</text>
+  <rect x="420" y="315" width="120" height="50" rx="8" fill="rgba(234,179,8,0.15)"/>
+  <text x="480" y="348" text-anchor="middle" fill="rgba(234,179,8,0.4)" font-size="28">👑</text>
+  <rect x="420" y="375" width="80" height="8" rx="3" fill="#2a2000"/>
+  <rect x="420" y="388" width="60" height="8" rx="3" fill="#1e1500"/>
+  <text x="480" y="420" text-anchor="middle" fill="#eab308" font-family="Arial" font-size="14" font-weight="bold">₹12,000</text>
+  <text x="480" y="435" text-anchor="middle" fill="#c9b86c" font-family="Arial" font-size="9">Royal Suite</text>
+  <text x="480" y="450" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="8">per night</text>
+  <rect x="580" y="300" width="160" height="160" rx="12" fill="#141000" stroke="rgba(234,179,8,0.2)" stroke-width="1"/>
+  <rect x="600" y="315" width="120" height="50" rx="8" fill="rgba(234,179,8,0.15)"/>
+  <text x="660" y="348" text-anchor="middle" fill="rgba(234,179,8,0.4)" font-size="28">🌊</text>
+  <rect x="600" y="375" width="80" height="8" rx="3" fill="#2a2000"/>
+  <rect x="600" y="388" width="60" height="8" rx="3" fill="#1e1500"/>
+  <text x="660" y="420" text-anchor="middle" fill="#eab308" font-family="Arial" font-size="14" font-weight="bold">₹8,000</text>
+  <text x="660" y="435" text-anchor="middle" fill="#c9b86c" font-family="Arial" font-size="9">Pool View</text>
+  <text x="660" y="450" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="8">per night</text>
+  <!-- Amenities -->
+  <rect x="220" y="480" width="520" height="60" rx="8" fill="#141000" stroke="rgba(234,179,8,0.2)" stroke-width="1"/>
+  <text x="480" y="505" text-anchor="middle" fill="#eab308" font-family="Georgia" font-size="12" font-weight="bold">🏊 Pool • 🍽️ Restaurant • 🧖 Spa • 🏋️ Gym • 📶 Free WiFi</text>
+  <text x="480" y="525" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="10">24/7 Room Service • Free Parking</text>
+  <!-- Footer -->
+  <rect x="20" y="550" width="760" height="30" fill="#0a0600"/>
+  <text x="400" y="570" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="9">© 2024 Royal Palace Hotel. All Rights Reserved.</text>
 </svg>

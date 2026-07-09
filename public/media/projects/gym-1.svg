@@ -1,23 +1,85 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e"/>
-      <stop offset="100%" style="stop-color:#16213e"/>
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="100%" style="stop-color:#1a0a0a"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="red" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#ef4444"/>
       <stop offset="100%" style="stop-color:#dc2626"/>
     </linearGradient>
   </defs>
+  <!-- Background -->
   <rect width="800" height="600" fill="url(#bg)"/>
-  <circle cx="650" cy="100" r="200" fill="#ef4444" opacity="0.1"/>
-  <circle cx="150" cy="500" r="150" fill="#ef4444" opacity="0.08"/>
-  <rect x="100" y="180" width="600" height="4" rx="2" fill="url(#accent)"/>
-  <text x="400" y="160" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="48" font-weight="bold">GYM</text>
-  <text x="400" y="250" text-anchor="middle" fill="#ef4444" font-family="Arial, sans-serif" font-size="24">FITNESS CENTER</text>
-  <rect x="250" y="320" width="300" height="80" rx="10" fill="url(#accent)"/>
-  <text x="400" y="370" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="20">START YOUR JOURNEY</text>
-  <circle cx="400" cy="480" r="40" fill="none" stroke="#ef4444" stroke-width="3"/>
-  <path d="M385 480 L415 480 M400 465 L400 495" stroke="#ef4444" stroke-width="3" stroke-linecap="round"/>
-  <text x="400" y="560" text-anchor="middle" fill="#6b7280" font-family="Arial, sans-serif" font-size="14">Premium Fitness Experience</text>
+  <!-- Browser Frame -->
+  <rect x="20" y="20" width="760" height="560" rx="12" fill="#111" stroke="#333" stroke-width="2"/>
+  <rect x="20" y="20" width="760" height="40" rx="12" fill="#1a1a1a"/>
+  <circle cx="45" cy="40" r="6" fill="#ef4444"/>
+  <circle cx="65" cy="40" r="6" fill="#f59e0b"/>
+  <circle cx="85" cy="40" r="6" fill="#10b981"/>
+  <rect x="200" y="32" width="200" height="16" rx="4" fill="#333"/>
+  <!-- Sidebar -->
+  <rect x="20" y="60" width="180" height="520" fill="#1a0a0a"/>
+  <rect x="40" y="80" width="140" height="30" rx="6" fill="url(#red)"/>
+  <text x="110" y="100" text-anchor="middle" fill="white" font-family="Arial" font-size="12" font-weight="bold">💪 Iron Peak</text>
+  <rect x="40" y="130" width="140" height="28" rx="4" fill="rgba(239,68,68,0.15)"/>
+  <text x="110" y="148" text-anchor="middle" fill="#ef4444" font-family="Arial" font-size="11">Home</text>
+  <rect x="40" y="168" width="140" height="28" rx="4" fill="transparent"/>
+  <text x="110" y="186" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="11">Services</text>
+  <rect x="40" y="206" width="140" height="28" rx="4" fill="transparent"/>
+  <text x="110" y="224" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="11">Gallery</text>
+  <rect x="40" y="244" width="140" height="28" rx="4" fill="transparent"/>
+  <text x="110" y="262" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="11">About</text>
+  <rect x="40" y="282" width="140" height="28" rx="4" fill="transparent"/>
+  <text x="110" y="300" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="11">Contact</text>
+  <!-- Hero Content -->
+  <rect x="220" y="80" width="300" height="20" rx="4" fill="rgba(239,68,68,0.2)"/>
+  <text x="230" y="95" fill="#ef4444" font-family="Arial" font-size="10">🔥 #1 Fitness Center</text>
+  <rect x="220" y="110" width="400" height="40" rx="4" fill="#222"/>
+  <text x="230" y="135" fill="white" font-family="Arial" font-size="24" font-weight="bold">Transform Your <tspan fill="#ef4444">Body</tspan></text>
+  <rect x="220" y="160" width="350" height="12" rx="3" fill="#333"/>
+  <rect x="220" y="180" width="300" height="12" rx="3" fill="#333"/>
+  <rect x="220" y="210" width="100" height="32" rx="6" fill="url(#red)"/>
+  <text x="270" y="230" text-anchor="middle" fill="white" font-family="Arial" font-size="11" font-weight="bold">View Plans</text>
+  <rect x="330" y="210" width="100" height="32" rx="6" fill="transparent" stroke="#ef4444" stroke-width="2"/>
+  <text x="380" y="230" text-anchor="middle" fill="#ef4444" font-family="Arial" font-size="11">Free Trial</text>
+  <!-- Stats -->
+  <rect x="220" y="260" width="80" height="40" rx="4" fill="rgba(239,68,68,0.1)"/>
+  <text x="260" y="278" text-anchor="middle" fill="#ef4444" font-family="Arial" font-size="14" font-weight="bold">1000+</text>
+  <text x="260" y="292" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="8">Members</text>
+  <rect x="310" y="260" width="80" height="40" rx="4" fill="rgba(239,68,68,0.1)"/>
+  <text x="350" y="278" text-anchor="middle" fill="#ef4444" font-family="Arial" font-size="14" font-weight="bold">15+</text>
+  <text x="350" y="292" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="8">Trainers</text>
+  <rect x="400" y="260" width="80" height="40" rx="4" fill="rgba(239,68,68,0.1)"/>
+  <text x="440" y="278" text-anchor="middle" fill="#ef4444" font-family="Arial" font-size="14" font-weight="bold">5+</text>
+  <text x="440" y="292" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="8">Years</text>
+  <!-- Hero Image -->
+  <rect x="540" y="100" width="220" height="280" rx="16" fill="rgba(239,68,68,0.15)" stroke="rgba(239,68,68,0.3)" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="650" y="230" text-anchor="middle" fill="rgba(239,68,68,0.4)" font-size="60">🏋️</text>
+  <text x="650" y="260" text-anchor="middle" fill="rgba(239,68,68,0.3)" font-family="Arial" font-size="12">Our Facility</text>
+  <!-- Pricing Cards -->
+  <rect x="220" y="320" width="160" height="180" rx="12" fill="#1e0f0f" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
+  <rect x="240" y="340" width="120" height="14" rx="3" fill="#333"/>
+  <text x="300" y="375" text-anchor="middle" fill="#ef4444" font-family="Arial" font-size="22" font-weight="bold">₹999</text>
+  <text x="300" y="392" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="10">/month</text>
+  <rect x="240" y="410" width="120" height="8" rx="2" fill="#2a1515"/>
+  <rect x="240" y="425" width="100" height="8" rx="2" fill="#2a1515"/>
+  <rect x="240" y="440" width="110" height="8" rx="2" fill="#2a1515"/>
+  <rect x="240" y="460" width="120" height="28" rx="6" fill="url(#red)"/>
+  <text x="300" y="478" text-anchor="middle" fill="white" font-family="Arial" font-size="10" font-weight="bold">Join Now</text>
+  <rect x="400" y="310" width="160" height="200" rx="12" fill="#1e0f0f" stroke="#ef4444" stroke-width="2"/>
+  <rect x="450" y="300" width="60" height="16" rx="8" fill="#ef4444"/>
+  <text x="480" y="312" text-anchor="middle" fill="white" font-family="Arial" font-size="8" font-weight="bold">Popular</text>
+  <rect x="420" y="335" width="120" height="14" rx="3" fill="#333"/>
+  <text x="480" y="375" text-anchor="middle" fill="#ef4444" font-family="Arial" font-size="22" font-weight="bold">₹2,499</text>
+  <text x="480" y="392" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="10">/3 months</text>
+  <rect x="420" y="410" width="120" height="8" rx="2" fill="#2a1515"/>
+  <rect x="420" y="425" width="100" height="8" rx="2" fill="#2a1515"/>
+  <rect x="420" y="440" width="110" height="8" rx="2" fill="#2a1515"/>
+  <rect x="420" y="460" width="120" height="28" rx="6" fill="url(#red)"/>
+  <text x="480" y="478" text-anchor="middle" fill="white" font-family="Arial" font-size="10" font-weight="bold">Get Started</text>
+  <!-- Footer -->
+  <rect x="220" y="520" width="540" height="50" fill="#0d0505"/>
+  <text x="490" y="540" text-anchor="middle" fill="#ef4444" font-family="Arial" font-size="12" font-weight="bold">💪 Iron Peak Gym</text>
+  <text x="490" y="558" text-anchor="middle" fill="#8b7355" font-family="Arial" font-size="9">© 2024 All Rights Reserved</text>
 </svg>
