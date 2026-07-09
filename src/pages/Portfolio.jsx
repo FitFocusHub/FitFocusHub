@@ -138,7 +138,7 @@ export default function Portfolio() {
                     <Link to={`/portfolio/${project.slug}`} className="project-card">
                       <div className="project-thumb">
                         {project.thumbnail ? (
-                          <img src={project.thumbnail} alt={project.name} />
+                          <img src={`${import.meta.env.BASE_URL}${project.thumbnail.slice(1)}`} alt={project.name} />
                         ) : (
                           <div className="project-placeholder">
                             <FaGlobe size={48} />

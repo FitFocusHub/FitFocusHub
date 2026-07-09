@@ -71,7 +71,7 @@ export default function ProjectDetails() {
               {project.gallery && project.gallery.length > 0 ? (
                 project.gallery.map((image, index) => (
                   <div key={index} className="gallery-item">
-                    <img src={image} alt={`${project.name} screenshot ${index + 1}`} />
+                    <img src={`${import.meta.env.BASE_URL}${image.slice(1)}`} alt={`${project.name} screenshot ${index + 1}`} />
                   </div>
                 ))
               ) : (
