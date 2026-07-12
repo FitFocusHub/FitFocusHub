@@ -8,12 +8,8 @@
   "address": "456 Gourmet Avenue, Mumbai, Maharashtra, India",
   "logo": "/logo.svg",
   "social": {
-    "facebook": "https://facebook.com/example",
     "instagram1": "https://instagram.com/mohammad_s4kib",
-    "instagram2": "https://instagram.com/abhaytiwari6434",
-    "twitter": "https://twitter.com/example",
-    "linkedin": "https://linkedin.com/company/example",
-    "youtube": "https://youtube.com/@example"
+    "instagram2": "https://instagram.com/abhaytiwari6434"
   },
   "stats": {
     "dishes": 150,

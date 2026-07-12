@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaDumbbell, FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa';
+import { FaDumbbell, FaInstagram } from 'react-icons/fa';
 import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
 import config from '../data/config.json';
 import './Footer.css';
@@ -26,18 +26,6 @@ export default function Footer() {
               </a>
               <a href={config.social.instagram2} target="_blank" rel="noopener noreferrer" className="social-link">
                 <FaInstagram />
-              </a>
-              <a href={config.social.facebook} target="_blank" rel="noopener noreferrer" className="social-link">
-                <FaFacebook />
-              </a>
-              <a href={config.social.twitter} target="_blank" rel="noopener noreferrer" className="social-link">
-                <FaTwitter />
-              </a>
-              <a href={config.social.linkedin} target="_blank" rel="noopener noreferrer" className="social-link">
-                <FaLinkedin />
-              </a>
-              <a href={config.social.youtube} target="_blank" rel="noopener noreferrer" className="social-link">
-                <FaYoutube />
               </a>
             </div>
           </div>
